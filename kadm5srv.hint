@@ -1,0 +1,6 @@
+category: Net Libs
+requires: cygwin libcom_err1 libhdb9 libkrb5_22 libroken18
+external-source: heimdal
+sdesc: "Heimdal Kerberos 5 (kadm5 server library)"
+ldesc: "Heimdal is an implementation of Kerberos 5, largely written in 
+Sweden. It is freely available under a three clause BSD style license."
