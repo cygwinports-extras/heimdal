@@ -1,5 +1,5 @@
 category: Net
-requires: cygwin crypt libX11_6 libXau6 libXt6 libasn1_8 libgssapi2 libhdb9 libheimntlm0 libhx509_1 libkadm5clnt7 libkadm5srv8 libkafs0 libkdc1 libkrb5_22 libotp0 libreadline6 libroken18 libsl0 openssl
+requires: cygwin crypt libX11_6 libXau6 libXt6 libasn1_8 libgssapi2 libhdb9 libheimntlm0 libhx509_1 libkadm5clnt7 libkadm5srv8 libkafs0 libkdc2 libkrb5_22 libotp0 libreadline6 libroken18 libsl0 openssl
 sdesc: "Heimdal Kerberos 5 (tools)"
 ldesc: "Heimdal is an implementation of Kerberos 5, largely written in 
 Sweden. It is freely available under a three clause BSD style license."
