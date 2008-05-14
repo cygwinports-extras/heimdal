@@ -1,5 +1,5 @@
 category: Net Libs
-requires: cygwin libasn1_8 libhdb9 libheimntlm0 libhx509_1 libkrb5_22 libroken18 openssl
+requires: cygwin libasn1_8 libhdb9 libheimntlm0 libhx509_3 libkrb5_24 libroken18 openssl
 external-source: heimdal
 sdesc: "Heimdal Kerberos 5 (KDC library)"
 ldesc: "Heimdal is an implementation of Kerberos 5, largely written in 

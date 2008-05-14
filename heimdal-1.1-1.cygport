@@ -1,0 +1,75 @@
+DESCRIPTION="Kerberos 5 implementation"
+HOMEPAGE="http://www.h5l.org/"
+SRC_URI="http://www.h5l.org/dist/src/${P}.tar.gz
+         http://www.h5l.org/dist/src/${P}.tar.gz.asc"
+
+PKG_NAMES="${PN} ${PN}-devel"
+PKG_HINTS="setup devel"
+PKG_CONTENTS[0]="--exclude=usr/bin/*.dll --exclude=*-config --exclude=man3
+                 etc/ usr/bin/ usr/lib/${PN}/windc.* usr/sbin/ usr/share/"
+PKG_CONTENTS[1]="--exclude=windc.* usr/bin/krb5-config
+                 usr/include/ usr/lib/ usr/share/man/man3/"
+
+libs="asn1 com_err gssapi hdb heimntlm hx509 kadm5clnt kadm5srv kafs kdc krb5 otp roken sl ss"
+abis=(8    1       2      9   0        3     7         8        0    2   24   0   18    0  0 )
+
+n=2
+for l in ${libs}
+do
+	v=${abis[$((n - 2))]}
+	case ${l} in
+		*[0-9])	PKG_NAMES+=" lib${l}_${v}" ;;
+		*)		PKG_NAMES+=" lib${l}${v}" ;;
+	esac
+	PKG_HINTS+=" ${l}"
+	PKG_CONTENTS[${n}]="usr/bin/cyg${l}-${v}.dll"
+	let n++
+done
+unset l n v
+
+DIFF_EXCLUDES="heimdal.info"
+
+src_compile() {
+	cd ${S}
+	cygautoreconf
+
+	cd ${B}
+
+	cygconf \
+		--includedir=/usr/include/${PN} \
+		--libdir=/usr/lib/${PN} \
+		--enable-shared \
+		--disable-krb4 \
+		--with-berkeley-db=/usr \
+		--with-openldap=/usr \
+		--with-openssl=/usr \
+    	--with-readline=/usr --with-readline-include=/usr/include/readline \
+		--without-ipv6
+
+	cygmake LDFLAGS="${LDFLAGS} -no-undefined"
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	mv ${D}/usr/lib/bin/*.dll ${D}/usr/bin
+	rmdir ${D}/usr/lib/bin/
+	sed -i -e 's#\.\./bin#../../bin#g' ${D}/usr/lib/${PN}/*.la
+
+	mv ${D}/usr/lib/${PN}/pkgconfig ${D}/usr/lib/
+
+	for a in ftp login rcp rlogin rsh su telnet
+	do
+		mv ${D}/usr/bin/{,k}${a}.exe
+		mv ${D}/usr/share/man/man1/{,k}${a}.1
+	done
+
+	for s in ftpd rlogind rshd telnetd
+	do
+		mv ${D}/usr/sbin/{,k}${s}.exe
+		mv ${D}/usr/share/man/man8/{,k}${s}.8
+	done
+
+	rm -fr ${D}/usr/share/man/cat*
+}
