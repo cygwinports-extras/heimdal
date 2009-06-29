@@ -1,5 +1,5 @@
 category: Net Libs
-requires: cygwin libcom_err1 libreadline6
+requires: libcom_err1 libreadline6
 external-source: heimdal
 sdesc: "Heimdal Kerberos 5 (ss library)"
 ldesc: "Heimdal is an implementation of Kerberos 5, largely written in 
