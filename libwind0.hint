@@ -1,6 +1,6 @@
-category: Net Libs
-requires: 
+category: Net
+requires: libcom_err2 libgcc1
 external-source: heimdal
-sdesc: "Heimdal Kerberos 5 (com_err library)"
+sdesc: "Heimdal Kerberos 5 (wind library)"
 ldesc: "Heimdal is an implementation of Kerberos 5, largely written in 
 Sweden. It is freely available under a three clause BSD style license."

@@ -1,5 +1,5 @@
-category: Net Libs
-requires: crypt minires
+category: Net
+requires: crypt libgcc1
 external-source: heimdal
 sdesc: "Heimdal Kerberos 5 (Roken library)"
 ldesc: "Heimdal is an implementation of Kerberos 5, largely written in 
