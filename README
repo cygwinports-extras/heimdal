@@ -19,17 +19,16 @@ Runtime requirements:
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.25-11
-  autoconf2.5-2.61-1
-  automake1.10-1.10.1-1
-  binutils-20060817-1
+  autoconf2.5-2.63-10
+  automake1.10-1.10.2-10
+  binutils-20080624-2
   bison-2.3-1
-  cygport-0.3.10-1
+  cygport-0.9.7-1
   flex-2.5.35-1
-  gawk-3.1.6-1
-  gcc-core-3.4.4-3
-  libtool-2.2.2-2
-  make-3.81-1
+  gawk-3.1.6-2
+  gcc4-core-4.3.2-2
+  libtool-2.2.7a-13
+  make-3.81-2
   sed-4.1.5-2
 
 Canonical website:
@@ -41,43 +40,40 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack heimdal-1.1-X-src.tar.bz2
+  unpack heimdal-1.2.1-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./heimdal-1.1-X.cygport all
+  cygport ./heimdal-1.2.1-X.cygport all
 
 This will create:
-  /usr/src/heimdal-1.1-X-src.tar.bz2
-  /usr/src/heimdal-1.1-X.tar.bz2
-  /usr/src/heimdal-devel-1.1-X.tar.bz2
-
-  /usr/src/libasn1_8-1.1.tar.bz2
-  /usr/src/libcom_err1-1.1.tar.bz2
-  /usr/src/libgssapi2-1.1.tar.bz2
-  /usr/src/libhdb9-1.1.tar.bz2
-  /usr/src/libheimntlm0-1.1.tar.bz2
-  /usr/src/libhx509_3-1.1.tar.bz2
-  /usr/src/libkadm5clnt7-1.1.tar.bz2
-  /usr/src/libkadm5srv8-1.1.tar.bz2
-  /usr/src/libkafs0-1.1.tar.bz2
-  /usr/src/libkdc2-1.1.tar.bz2
-  /usr/src/libkrb5_24-1.1.tar.bz2
-  /usr/src/libotp0-1.1.tar.bz2
-  /usr/src/libroken18-1.1.tar.bz2
-  /usr/src/libsl0-1.1.tar.bz2
-  /usr/src/libss0-1.1.tar.bz2
+  /usr/src/heimdal-1.2.1-X-src.tar.bz2
+  /usr/src/heimdal-1.2.1-X.tar.bz2
+  /usr/src/libasn1_8-1.2.1.tar.bz2
+  /usr/src/libgssapi2-1.2.1.tar.bz2
+  /usr/src/libhdb9-1.2.1.tar.bz2
+  /usr/src/libheimntlm0-1.2.1.tar.bz2
+  /usr/src/libhx509_4-1.2.1.tar.bz2
+  /usr/src/libkadm5clnt7-1.2.1.tar.bz2
+  /usr/src/libkadm5srv8-1.2.1.tar.bz2
+  /usr/src/libkafs0-1.2.1.tar.bz2
+  /usr/src/libkdc2-1.2.1.tar.bz2
+  /usr/src/libkrb5_25-1.2.1.tar.bz2
+  /usr/src/libkrb5-devel-1.2.1-X.tar.bz2
+  /usr/src/libotp0-1.2.1.tar.bz2
+  /usr/src/libroken18-1.2.1.tar.bz2
+  /usr/src/libsl0-1.2.1.tar.bz2
+  /usr/src/libwind0-1.2.1.tar.bz2
 
 -------------------------------------------
 
-Files included in the binary package:
+Files included in the binary packages:
 
 (heimdal)
-  /etc/postinstall/heimdal.sh
   /usr/bin/afslog.exe
-  /usr/bin/compile_et.exe
   /usr/bin/gss.exe
   /usr/bin/hxtool.exe
+  /usr/bin/idn-lookup.exe
   /usr/bin/kauth
   /usr/bin/kdestroy.exe
   /usr/bin/kf.exe
@@ -87,13 +83,12 @@ Files included in the binary package:
   /usr/bin/klist.exe
   /usr/bin/klogin.exe
   /usr/bin/kpasswd.exe
-  /usr/bin/krb5-config
   /usr/bin/krcp.exe
   /usr/bin/krsh.exe
   /usr/bin/ksu.exe
+  /usr/bin/kswitch.exe
   /usr/bin/ktelnet.exe
   /usr/bin/kx.exe
-  /usr/bin/mk_cmds.exe
   /usr/bin/otp.exe
   /usr/bin/otpprint.exe
   /usr/bin/pagsh.exe
@@ -104,8 +99,6 @@ Files included in the binary package:
   /usr/bin/tenletxr
   /usr/bin/verify_krb5_conf.exe
   /usr/bin/xnlock.exe
-  /usr/lib/heimdal/windc.dll
-  /usr/lib/heimdal/windc.la
   /usr/sbin/hprop.exe
   /usr/sbin/hpropd.exe
   /usr/sbin/iprop-log.exe
@@ -127,21 +120,21 @@ Files included in the binary package:
   /usr/sbin/kxd.exe
   /usr/sbin/popper.exe
   /usr/sbin/push.exe
-  /usr/share/doc/heimdal-1.1/ChangeLog
-  /usr/share/doc/heimdal-1.1/LICENSE
-  /usr/share/doc/heimdal-1.1/NEWS
-  /usr/share/doc/heimdal-1.1/README
-  /usr/share/doc/heimdal-1.1/TODO
+  /usr/share/doc/heimdal/ChangeLog
+  /usr/share/doc/heimdal/LICENSE
+  /usr/share/doc/heimdal/NEWS
+  /usr/share/doc/heimdal/README
+  /usr/share/doc/heimdal/TODO
   /usr/share/info/heimdal.info.gz
   /usr/share/info/hx509.info.gz
   /usr/share/man/man1/afslog.1.gz
-  /usr/share/man/man1/kauth.1
+  /usr/share/man/man1/kauth.1.gz
   /usr/share/man/man1/kdestroy.1.gz
   /usr/share/man/man1/kf.1.gz
   /usr/share/man/man1/kftp.1.gz
   /usr/share/man/man1/kgetcred.1.gz
   /usr/share/man/man1/kimpersonate.1.gz
-  /usr/share/man/man1/kinit.1
+  /usr/share/man/man1/kinit.1.gz
   /usr/share/man/man1/klist.1.gz
   /usr/share/man/man1/klogin.1.gz
   /usr/share/man/man1/kpasswd.1.gz
@@ -167,9 +160,8 @@ Files included in the binary package:
   /usr/share/man/man8/hprop.8.gz
   /usr/share/man/man8/hpropd.8.gz
   /usr/share/man/man8/iprop-log.8.gz
-  /usr/share/man/man8/iprop.8
-  /usr/share/man/man8/ipropd-master.8
-  /usr/share/man/man8/ipropd-slave.8
+  /usr/share/man/man8/iprop.8.gz
+  /usr/share/man/man8/ipropd-master.8.gz
   /usr/share/man/man8/kadmin.8.gz
   /usr/share/man/man8/kadmind.8.gz
   /usr/share/man/man8/kcm.8.gz
@@ -191,9 +183,6 @@ Files included in the binary package:
 (libasn1_8)
   /usr/bin/cygasn1-8.dll
 
-(libcom_err1)
-  /usr/bin/cygcom_err-1.dll
-
 (libgssapi2)
   /usr/bin/cyggssapi-2.dll
 
@@ -203,8 +192,8 @@ Files included in the binary package:
 (libheimntlm0)
   /usr/bin/cygheimntlm-0.dll
 
-(libhx509_3)
-  /usr/bin/cyghx509-3.dll
+(libhx509_4)
+  /usr/bin/cyghx509-4.dll
 
 (libkadm5clnt7)
   /usr/bin/cygkadm5clnt-7.dll
@@ -218,8 +207,8 @@ Files included in the binary package:
 (libkdc2)
   /usr/bin/cygkdc-2.dll
 
-(libkrb5_24)
-  /usr/bin/cygkrb5-24.dll
+(libkrb5_25)
+  /usr/bin/cygkrb5-25.dll
 
 (libotp0)
   /usr/bin/cygotp-0.dll
@@ -230,784 +219,239 @@ Files included in the binary package:
 (libsl0)
   /usr/bin/cygsl-0.dll
 
-(libss0)
-  /usr/bin/cygss-0.dll
+(libwind0)
+  /usr/bin/cygwind-0.dll
 
-(heimdal-devel)
-  /usr/include/heimdal/asn1_err.h
-  /usr/include/heimdal/base64.h
-  /usr/include/heimdal/cms_asn1.h
-  /usr/include/heimdal/com_err.h
-  /usr/include/heimdal/com_right.h
-  /usr/include/heimdal/der-protos.h
-  /usr/include/heimdal/der.h
-  /usr/include/heimdal/digest_asn1.h
-  /usr/include/heimdal/editline.h
-  /usr/include/heimdal/getarg.h
-  /usr/include/heimdal/gssapi.h
-  /usr/include/heimdal/gssapi/gkrb5_err.h
-  /usr/include/heimdal/gssapi/gssapi.h
-  /usr/include/heimdal/gssapi/gssapi_krb5.h
-  /usr/include/heimdal/gssapi/gssapi_spnego.h
-  /usr/include/heimdal/hdb-protos.h
-  /usr/include/heimdal/hdb.h
-  /usr/include/heimdal/hdb_asn1.h
-  /usr/include/heimdal/hdb_err.h
-  /usr/include/heimdal/heim_asn1.h
-  /usr/include/heimdal/heim_err.h
-  /usr/include/heimdal/heimntlm-protos.h
-  /usr/include/heimdal/heimntlm.h
-  /usr/include/heimdal/hex.h
-  /usr/include/heimdal/hx509-protos.h
-  /usr/include/heimdal/hx509.h
-  /usr/include/heimdal/hx509_err.h
-  /usr/include/heimdal/k524_err.h
-  /usr/include/heimdal/kadm5/admin.h
-  /usr/include/heimdal/kadm5/kadm5-private.h
-  /usr/include/heimdal/kadm5/kadm5-protos.h
-  /usr/include/heimdal/kadm5/kadm5_err.h
-  /usr/include/heimdal/kadm5/private.h
-  /usr/include/heimdal/kafs.h
-  /usr/include/heimdal/kdc-protos.h
-  /usr/include/heimdal/kdc.h
-  /usr/include/heimdal/krb5-private.h
-  /usr/include/heimdal/krb5-protos.h
-  /usr/include/heimdal/krb5-types.h
-  /usr/include/heimdal/krb5.h
-  /usr/include/heimdal/krb5/locate_plugin.h
-  /usr/include/heimdal/krb5/windc_plugin.h
-  /usr/include/heimdal/krb5_asn1.h
-  /usr/include/heimdal/krb5_ccapi.h
-  /usr/include/heimdal/krb5_err.h
-  /usr/include/heimdal/kx509_asn1.h
-  /usr/include/heimdal/otp.h
-  /usr/include/heimdal/parse_bytes.h
-  /usr/include/heimdal/parse_time.h
-  /usr/include/heimdal/parse_units.h
-  /usr/include/heimdal/pkcs12_asn1.h
-  /usr/include/heimdal/pkcs8_asn1.h
-  /usr/include/heimdal/pkcs9_asn1.h
-  /usr/include/heimdal/pkinit_asn1.h
-  /usr/include/heimdal/resolve.h
-  /usr/include/heimdal/rfc2459_asn1.h
-  /usr/include/heimdal/roken-common.h
-  /usr/include/heimdal/roken.h
-  /usr/include/heimdal/roken/ifaddrs.h
-  /usr/include/heimdal/roken/vis.h
-  /usr/include/heimdal/rtbl.h
-  /usr/include/heimdal/sl.h
-  /usr/include/heimdal/ss/ss.h
-  /usr/include/heimdal/xdbm.h
-  /usr/lib/heimdal/libasn1.a
-  /usr/lib/heimdal/libasn1.dll.a
-  /usr/lib/heimdal/libasn1.la
-  /usr/lib/heimdal/libcom_err.a
-  /usr/lib/heimdal/libcom_err.dll.a
-  /usr/lib/heimdal/libcom_err.la
-  /usr/lib/heimdal/libeditline.a
-  /usr/lib/heimdal/libeditline.dll.a
-  /usr/lib/heimdal/libeditline.la
-  /usr/lib/heimdal/libgssapi.a
-  /usr/lib/heimdal/libgssapi.dll.a
-  /usr/lib/heimdal/libgssapi.la
-  /usr/lib/heimdal/libhdb.a
-  /usr/lib/heimdal/libhdb.dll.a
-  /usr/lib/heimdal/libhdb.la
-  /usr/lib/heimdal/libheimntlm.a
-  /usr/lib/heimdal/libheimntlm.dll.a
-  /usr/lib/heimdal/libheimntlm.la
-  /usr/lib/heimdal/libhx509.a
-  /usr/lib/heimdal/libhx509.dll.a
-  /usr/lib/heimdal/libhx509.la
-  /usr/lib/heimdal/libkadm5clnt.a
-  /usr/lib/heimdal/libkadm5clnt.dll.a
-  /usr/lib/heimdal/libkadm5clnt.la
-  /usr/lib/heimdal/libkadm5srv.a
-  /usr/lib/heimdal/libkadm5srv.dll.a
-  /usr/lib/heimdal/libkadm5srv.la
-  /usr/lib/heimdal/libkafs.a
-  /usr/lib/heimdal/libkafs.dll.a
-  /usr/lib/heimdal/libkafs.la
-  /usr/lib/heimdal/libkdc.a
-  /usr/lib/heimdal/libkdc.dll.a
-  /usr/lib/heimdal/libkdc.la
-  /usr/lib/heimdal/libkrb5.a
-  /usr/lib/heimdal/libkrb5.dll.a
-  /usr/lib/heimdal/libkrb5.la
-  /usr/lib/heimdal/libotp.a
-  /usr/lib/heimdal/libotp.dll.a
-  /usr/lib/heimdal/libotp.la
-  /usr/lib/heimdal/libroken.a
-  /usr/lib/heimdal/libroken.dll.a
-  /usr/lib/heimdal/libroken.la
-  /usr/lib/heimdal/libsl.a
-  /usr/lib/heimdal/libsl.dll.a
-  /usr/lib/heimdal/libsl.la
-  /usr/lib/heimdal/libss.a
-  /usr/lib/heimdal/libss.dll.a
-  /usr/lib/heimdal/libss.la
+(libkrb5-devel)
+  /usr/bin/krb5-config
+  /usr/include/asn1_err.h
+  /usr/include/base64.h
+  /usr/include/cms_asn1.h
+  /usr/include/der-protos.h
+  /usr/include/der.h
+  /usr/include/digest_asn1.h
+  /usr/include/getarg.h
+  /usr/include/gssapi.h
+  /usr/include/gssapi/gkrb5_err.h
+  /usr/include/gssapi/gssapi.h
+  /usr/include/gssapi/gssapi_krb5.h
+  /usr/include/gssapi/gssapi_spnego.h
+  /usr/include/hdb-protos.h
+  /usr/include/hdb.h
+  /usr/include/hdb_asn1.h
+  /usr/include/hdb_err.h
+  /usr/include/heim_asn1.h
+  /usr/include/heim_err.h
+  /usr/include/heimntlm-protos.h
+  /usr/include/heimntlm.h
+  /usr/include/hex.h
+  /usr/include/hx509-protos.h
+  /usr/include/hx509.h
+  /usr/include/hx509_err.h
+  /usr/include/k524_err.h
+  /usr/include/kadm5/admin.h
+  /usr/include/kadm5/kadm5-private.h
+  /usr/include/kadm5/kadm5-protos.h
+  /usr/include/kadm5/kadm5_err.h
+  /usr/include/kadm5/private.h
+  /usr/include/kafs.h
+  /usr/include/kdc-protos.h
+  /usr/include/kdc.h
+  /usr/include/krb5-private.h
+  /usr/include/krb5-protos.h
+  /usr/include/krb5-types.h
+  /usr/include/krb5.h
+  /usr/include/krb5/locate_plugin.h
+  /usr/include/krb5/windc_plugin.h
+  /usr/include/krb5_asn1.h
+  /usr/include/krb5_ccapi.h
+  /usr/include/krb5_err.h
+  /usr/include/kx509_asn1.h
+  /usr/include/otp.h
+  /usr/include/parse_bytes.h
+  /usr/include/parse_time.h
+  /usr/include/parse_units.h
+  /usr/include/pkcs12_asn1.h
+  /usr/include/pkcs8_asn1.h
+  /usr/include/pkcs9_asn1.h
+  /usr/include/pkinit_asn1.h
+  /usr/include/resolve.h
+  /usr/include/rfc2459_asn1.h
+  /usr/include/roken-common.h
+  /usr/include/roken.h
+  /usr/include/roken/vis.h
+  /usr/include/rtbl.h
+  /usr/include/sl.h
+  /usr/include/wind.h
+  /usr/include/wind_err.h
+  /usr/include/xdbm.h
+  /usr/lib/libasn1.a
+  /usr/lib/libasn1.dll.a
+  /usr/lib/libasn1.la
+  /usr/lib/libgssapi.a
+  /usr/lib/libgssapi.dll.a
+  /usr/lib/libgssapi.la
+  /usr/lib/libhdb.a
+  /usr/lib/libhdb.dll.a
+  /usr/lib/libhdb.la
+  /usr/lib/libheimntlm.a
+  /usr/lib/libheimntlm.dll.a
+  /usr/lib/libheimntlm.la
+  /usr/lib/libhx509.a
+  /usr/lib/libhx509.dll.a
+  /usr/lib/libhx509.la
+  /usr/lib/libkadm5clnt.a
+  /usr/lib/libkadm5clnt.dll.a
+  /usr/lib/libkadm5clnt.la
+  /usr/lib/libkadm5srv.a
+  /usr/lib/libkadm5srv.dll.a
+  /usr/lib/libkadm5srv.la
+  /usr/lib/libkafs.a
+  /usr/lib/libkafs.dll.a
+  /usr/lib/libkafs.la
+  /usr/lib/libkdc.a
+  /usr/lib/libkdc.dll.a
+  /usr/lib/libkdc.la
+  /usr/lib/libkrb5.a
+  /usr/lib/libkrb5.dll.a
+  /usr/lib/libkrb5.la
+  /usr/lib/libotp.a
+  /usr/lib/libotp.dll.a
+  /usr/lib/libotp.la
+  /usr/lib/libroken.a
+  /usr/lib/libroken.dll.a
+  /usr/lib/libroken.la
+  /usr/lib/libsl.a
+  /usr/lib/libsl.dll.a
+  /usr/lib/libsl.la
+  /usr/lib/libwind.a
+  /usr/lib/libwind.dll.a
+  /usr/lib/libwind.la
   /usr/lib/pkgconfig/heimdal-gssapi.pc
-  /usr/share/man/man3/arg_printusage.3
-  /usr/share/man/man3/ecalloc.3
-  /usr/share/man/man3/editline.3.gz
-  /usr/share/man/man3/emalloc.3
-  /usr/share/man/man3/eread.3
-  /usr/share/man/man3/erealloc.3
-  /usr/share/man/man3/esetenv.3
-  /usr/share/man/man3/estrdup.3
-  /usr/share/man/man3/ewrite.3
-  /usr/share/man/man3/getarg.3
-  /usr/share/man/man3/gss_accept_sec_context.3
-  /usr/share/man/man3/gss_acquire_cred.3
-  /usr/share/man/man3/gss_add_cred.3
-  /usr/share/man/man3/gss_add_oid_set_member.3
-  /usr/share/man/man3/gss_canonicalize_name.3
-  /usr/share/man/man3/gss_compare_name.3
-  /usr/share/man/man3/gss_context_time.3
-  /usr/share/man/man3/gss_create_empty_oid_set.3
-  /usr/share/man/man3/gss_delete_sec_context.3
-  /usr/share/man/man3/gss_display_name.3
-  /usr/share/man/man3/gss_display_status.3
-  /usr/share/man/man3/gss_duplicate_name.3
-  /usr/share/man/man3/gss_export_name.3
-  /usr/share/man/man3/gss_export_sec_context.3
-  /usr/share/man/man3/gss_get_mic.3
-  /usr/share/man/man3/gss_import_name.3
-  /usr/share/man/man3/gss_import_sec_context.3
-  /usr/share/man/man3/gss_indicate_mechs.3
-  /usr/share/man/man3/gss_init_sec_context.3
-  /usr/share/man/man3/gss_inquire_context.3
-  /usr/share/man/man3/gss_inquire_cred.3
-  /usr/share/man/man3/gss_inquire_cred_by_mech.3
-  /usr/share/man/man3/gss_inquire_mechs_for_name.3
-  /usr/share/man/man3/gss_inquire_names_for_mech.3
-  /usr/share/man/man3/gss_krb5_ccache_name.3
-  /usr/share/man/man3/gss_krb5_compat_des3_mic.3
-  /usr/share/man/man3/gss_krb5_copy_ccache.3
-  /usr/share/man/man3/gss_krb5_get_tkt_flags.3
-  /usr/share/man/man3/gss_krb5_import_ccache.3
-  /usr/share/man/man3/gss_krb5_import_cred.3
-  /usr/share/man/man3/gss_process_context_token.3
-  /usr/share/man/man3/gss_release_buffer.3
-  /usr/share/man/man3/gss_release_cred.3
-  /usr/share/man/man3/gss_release_name.3
-  /usr/share/man/man3/gss_release_oid_set.3
-  /usr/share/man/man3/gss_seal.3
-  /usr/share/man/man3/gss_sign.3
-  /usr/share/man/man3/gss_test_oid_set_member.3
-  /usr/share/man/man3/gss_unseal.3
-  /usr/share/man/man3/gss_unwrap.3
-  /usr/share/man/man3/gss_verify.3
-  /usr/share/man/man3/gss_verify_mic.3
-  /usr/share/man/man3/gss_wrap.3
-  /usr/share/man/man3/gss_wrap_size_limit.3
+  /usr/share/man/man3/arg_printusage.3.gz
+  /usr/share/man/man3/ecalloc.3.gz
+  /usr/share/man/man3/emalloc.3.gz
+  /usr/share/man/man3/getarg.3.gz
+  /usr/share/man/man3/gss_accept_sec_context.3.gz
+  /usr/share/man/man3/gss_acquire_cred.3.gz
   /usr/share/man/man3/gssapi.3.gz
-  /usr/share/man/man3/gsskrb5_extract_authz_data_from_sec_context.3
-  /usr/share/man/man3/gsskrb5_register_acceptor_identity.3
-  /usr/share/man/man3/k_afs_cell_of_file.3
-  /usr/share/man/man3/k_hasafs.3
-  /usr/share/man/man3/k_hasafs_recheck.3
-  /usr/share/man/man3/k_pioctl.3
-  /usr/share/man/man3/k_setpag.3
-  /usr/share/man/man3/k_unlog.3
-  /usr/share/man/man3/kadm5_add_passwd_quality_verifier.3
-  /usr/share/man/man3/kadm5_check_password_quality.3
-  /usr/share/man/man3/kadm5_pwcheck.3
-  /usr/share/man/man3/kadm5_setup_passwd_quality_check.3
-  /usr/share/man/man3/kafs.3
-  /usr/share/man/man3/kafs_set_verbose.3
-  /usr/share/man/man3/kafs_settoken.3
-  /usr/share/man/man3/kafs_settoken5.3
-  /usr/share/man/man3/kafs_settoken_rxkad.3
+  /usr/share/man/man3/k_hasafs.3.gz
+  /usr/share/man/man3/kadm5_pwcheck.3.gz
+  /usr/share/man/man3/kafs.3.gz
   /usr/share/man/man3/krb5.3.gz
-  /usr/share/man/man3/krb524_convert_creds_kdc.3
-  /usr/share/man/man3/krb524_convert_creds_kdc_ccache.3
-  /usr/share/man/man3/krb5_425_conv_principal.3
-  /usr/share/man/man3/krb5_425_conv_principal_ext.3
-  /usr/share/man/man3/krb5_524_conv_principal.3
-  /usr/share/man/man3/krb5_abort.3
-  /usr/share/man/man3/krb5_abortx.3
-  /usr/share/man/man3/krb5_acl_match_file.3
-  /usr/share/man/man3/krb5_acl_match_string.3
-  /usr/share/man/man3/krb5_add_et_list.3
-  /usr/share/man/man3/krb5_add_extra_addresses.3
-  /usr/share/man/man3/krb5_add_ignore_addresses.3
-  /usr/share/man/man3/krb5_addlog_dest.3
-  /usr/share/man/man3/krb5_addlog_func.3
-  /usr/share/man/man3/krb5_addr2sockaddr.3
-  /usr/share/man/man3/krb5_address.3
-  /usr/share/man/man3/krb5_address_compare.3
-  /usr/share/man/man3/krb5_address_order.3
-  /usr/share/man/man3/krb5_address_search.3
-  /usr/share/man/man3/krb5_addresses.3
-  /usr/share/man/man3/krb5_afslog.3
-  /usr/share/man/man3/krb5_afslog_uid.3
+  /usr/share/man/man3/krb524_convert_creds_kdc.3.gz
+  /usr/share/man/man3/krb524_convert_creds_kdc_ccache.3.gz
+  /usr/share/man/man3/krb5_425_conv_principal.3.gz
+  /usr/share/man/man3/krb5_425_conv_principal_ext.3.gz
+  /usr/share/man/man3/krb5_abort.3.gz
+  /usr/share/man/man3/krb5_acl_match_file.3.gz
+  /usr/share/man/man3/krb5_acl_match_string.3.gz
+  /usr/share/man/man3/krb5_add_et_list.3.gz
+  /usr/share/man/man3/krb5_address.3.gz
+  /usr/share/man/man3/krb5_addresses.3.gz
   /usr/share/man/man3/krb5_aname_to_localname.3.gz
-  /usr/share/man/man3/krb5_anyaddr.3
-  /usr/share/man/man3/krb5_appdefault.3
-  /usr/share/man/man3/krb5_appdefault_boolean.3
-  /usr/share/man/man3/krb5_appdefault_string.3
-  /usr/share/man/man3/krb5_appdefault_time.3
-  /usr/share/man/man3/krb5_append_addresses.3
-  /usr/share/man/man3/krb5_auth_con_addflags.3
-  /usr/share/man/man3/krb5_auth_con_free.3
-  /usr/share/man/man3/krb5_auth_con_genaddrs.3
-  /usr/share/man/man3/krb5_auth_con_generatelocalsubkey.3
-  /usr/share/man/man3/krb5_auth_con_getaddrs.3
-  /usr/share/man/man3/krb5_auth_con_getauthenticator.3
-  /usr/share/man/man3/krb5_auth_con_getflags.3
-  /usr/share/man/man3/krb5_auth_con_getkey.3
-  /usr/share/man/man3/krb5_auth_con_getlocalsubkey.3
-  /usr/share/man/man3/krb5_auth_con_getrcache.3
-  /usr/share/man/man3/krb5_auth_con_getremotesubkey.3
-  /usr/share/man/man3/krb5_auth_con_getuserkey.3
-  /usr/share/man/man3/krb5_auth_con_init.3
-  /usr/share/man/man3/krb5_auth_con_initivector.3
-  /usr/share/man/man3/krb5_auth_con_removeflags.3
-  /usr/share/man/man3/krb5_auth_con_setaddrs.3
-  /usr/share/man/man3/krb5_auth_con_setaddrs_from_fd.3
-  /usr/share/man/man3/krb5_auth_con_setflags.3
-  /usr/share/man/man3/krb5_auth_con_setivector.3
-  /usr/share/man/man3/krb5_auth_con_setkey.3
-  /usr/share/man/man3/krb5_auth_con_setlocalsubkey.3
-  /usr/share/man/man3/krb5_auth_con_setrcache.3
-  /usr/share/man/man3/krb5_auth_con_setremotesubkey.3
-  /usr/share/man/man3/krb5_auth_con_setuserkey.3
-  /usr/share/man/man3/krb5_auth_context.3
-  /usr/share/man/man3/krb5_auth_getcksumtype.3
-  /usr/share/man/man3/krb5_auth_getkeytype.3
-  /usr/share/man/man3/krb5_auth_getlocalseqnumber.3
-  /usr/share/man/man3/krb5_auth_getremoteseqnumber.3
-  /usr/share/man/man3/krb5_auth_setcksumtype.3
-  /usr/share/man/man3/krb5_auth_setkeytype.3
-  /usr/share/man/man3/krb5_auth_setlocalseqnumber.3
-  /usr/share/man/man3/krb5_auth_setremoteseqnumber.3
-  /usr/share/man/man3/krb5_build_ap_req.3
-  /usr/share/man/man3/krb5_build_principal.3
-  /usr/share/man/man3/krb5_build_principal_ext.3
-  /usr/share/man/man3/krb5_build_principal_va.3
-  /usr/share/man/man3/krb5_build_principal_va_ext.3
-  /usr/share/man/man3/krb5_c_block_size.3
-  /usr/share/man/man3/krb5_c_checksum_length.3
-  /usr/share/man/man3/krb5_c_decrypt.3
-  /usr/share/man/man3/krb5_c_encrypt.3
-  /usr/share/man/man3/krb5_c_encrypt_length.3
-  /usr/share/man/man3/krb5_c_enctype_compare.3
-  /usr/share/man/man3/krb5_c_get_checksum.3
-  /usr/share/man/man3/krb5_c_is_coll_proof_cksum.3
-  /usr/share/man/man3/krb5_c_is_keyed_cksum.3
-  /usr/share/man/man3/krb5_c_keylength.3
-  /usr/share/man/man3/krb5_c_make_checksum.3
-  /usr/share/man/man3/krb5_c_make_random_key.3
-  /usr/share/man/man3/krb5_c_set_checksum.3
-  /usr/share/man/man3/krb5_c_valid_cksumtype.3
-  /usr/share/man/man3/krb5_c_valid_enctype.3
-  /usr/share/man/man3/krb5_c_verify_checksum.3
-  /usr/share/man/man3/krb5_cc_clear_mcred.3
-  /usr/share/man/man3/krb5_cc_close.3
-  /usr/share/man/man3/krb5_cc_copy_cache.3
-  /usr/share/man/man3/krb5_cc_cursor.3
-  /usr/share/man/man3/krb5_cc_default.3
-  /usr/share/man/man3/krb5_cc_default_name.3
-  /usr/share/man/man3/krb5_cc_destroy.3
-  /usr/share/man/man3/krb5_cc_end_seq_get.3
-  /usr/share/man/man3/krb5_cc_gen_new.3
-  /usr/share/man/man3/krb5_cc_get_full_name.3
-  /usr/share/man/man3/krb5_cc_get_name.3
-  /usr/share/man/man3/krb5_cc_get_ops.3
-  /usr/share/man/man3/krb5_cc_get_prefix_ops.3
-  /usr/share/man/man3/krb5_cc_get_principal.3
-  /usr/share/man/man3/krb5_cc_get_type.3
-  /usr/share/man/man3/krb5_cc_get_version.3
-  /usr/share/man/man3/krb5_cc_initialize.3
-  /usr/share/man/man3/krb5_cc_new_unique.3
-  /usr/share/man/man3/krb5_cc_next_cred.3
-  /usr/share/man/man3/krb5_cc_next_cred_match.3
-  /usr/share/man/man3/krb5_cc_ops.3
-  /usr/share/man/man3/krb5_cc_register.3
-  /usr/share/man/man3/krb5_cc_remove_cred.3
-  /usr/share/man/man3/krb5_cc_resolve.3
-  /usr/share/man/man3/krb5_cc_retrieve_cred.3
-  /usr/share/man/man3/krb5_cc_set_default_name.3
-  /usr/share/man/man3/krb5_cc_set_flags.3
-  /usr/share/man/man3/krb5_cc_start_seq_get.3
-  /usr/share/man/man3/krb5_cc_store_cred.3
-  /usr/share/man/man3/krb5_ccache.3
-  /usr/share/man/man3/krb5_change_password.3
-  /usr/share/man/man3/krb5_check_transited.3
-  /usr/share/man/man3/krb5_check_transited_realms.3
-  /usr/share/man/man3/krb5_checksum.3
-  /usr/share/man/man3/krb5_checksum_disable.3
-  /usr/share/man/man3/krb5_checksum_is_collision_proof.3
-  /usr/share/man/man3/krb5_checksum_is_keyed.3
-  /usr/share/man/man3/krb5_checksumsize.3
-  /usr/share/man/man3/krb5_cksumtype_valid.3
-  /usr/share/man/man3/krb5_clear_error_string.3
-  /usr/share/man/man3/krb5_closelog.3
+  /usr/share/man/man3/krb5_appdefault.3.gz
+  /usr/share/man/man3/krb5_appdefault_boolean.3.gz
+  /usr/share/man/man3/krb5_auth_con_addflags.3.gz
+  /usr/share/man/man3/krb5_auth_context.3.gz
+  /usr/share/man/man3/krb5_c_block_size.3.gz
+  /usr/share/man/man3/krb5_c_make_checksum.3.gz
+  /usr/share/man/man3/krb5_cc_cursor.3.gz
+  /usr/share/man/man3/krb5_ccache.3.gz
+  /usr/share/man/man3/krb5_change_password.3.gz
+  /usr/share/man/man3/krb5_check_transited.3.gz
+  /usr/share/man/man3/krb5_check_transited_realms.3.gz
+  /usr/share/man/man3/krb5_checksum.3.gz
   /usr/share/man/man3/krb5_compare_creds.3.gz
-  /usr/share/man/man3/krb5_config.3
-  /usr/share/man/man3/krb5_config_file_free.3
-  /usr/share/man/man3/krb5_config_free_strings.3
-  /usr/share/man/man3/krb5_config_get.3
-  /usr/share/man/man3/krb5_config_get_bool.3
-  /usr/share/man/man3/krb5_config_get_bool_default.3
-  /usr/share/man/man3/krb5_config_get_int.3
-  /usr/share/man/man3/krb5_config_get_int_default.3
-  /usr/share/man/man3/krb5_config_get_list.3
-  /usr/share/man/man3/krb5_config_get_next.3
-  /usr/share/man/man3/krb5_config_get_string.3
-  /usr/share/man/man3/krb5_config_get_string_default.3
-  /usr/share/man/man3/krb5_config_get_strings.3
-  /usr/share/man/man3/krb5_config_get_time.3
-  /usr/share/man/man3/krb5_config_get_time_default.3
-  /usr/share/man/man3/krb5_config_parse_file.3
-  /usr/share/man/man3/krb5_config_parse_file_multi.3
-  /usr/share/man/man3/krb5_config_vget.3
-  /usr/share/man/man3/krb5_config_vget_bool.3
-  /usr/share/man/man3/krb5_config_vget_bool_default.3
-  /usr/share/man/man3/krb5_config_vget_int.3
-  /usr/share/man/man3/krb5_config_vget_int_default.3
-  /usr/share/man/man3/krb5_config_vget_list.3
-  /usr/share/man/man3/krb5_config_vget_next.3
-  /usr/share/man/man3/krb5_config_vget_string.3
-  /usr/share/man/man3/krb5_config_vget_string_default.3
-  /usr/share/man/man3/krb5_config_vget_strings.3
-  /usr/share/man/man3/krb5_config_vget_time.3
-  /usr/share/man/man3/krb5_config_vget_time_default.3
-  /usr/share/man/man3/krb5_context.3
-  /usr/share/man/man3/krb5_copy_address.3
-  /usr/share/man/man3/krb5_copy_addresses.3
-  /usr/share/man/man3/krb5_copy_checksum.3
-  /usr/share/man/man3/krb5_copy_creds.3
-  /usr/share/man/man3/krb5_copy_creds_contents.3
-  /usr/share/man/man3/krb5_copy_data.3
-  /usr/share/man/man3/krb5_copy_host_realm.3
-  /usr/share/man/man3/krb5_copy_keyblock.3
-  /usr/share/man/man3/krb5_copy_keyblock_contents.3
-  /usr/share/man/man3/krb5_copy_principal.3
-  /usr/share/man/man3/krb5_copy_ticket.3
-  /usr/share/man/man3/krb5_create_checksum.3
-  /usr/share/man/man3/krb5_creds.3
-  /usr/share/man/man3/krb5_crypto_destroy.3
-  /usr/share/man/man3/krb5_crypto_get_checksum_type.3
-  /usr/share/man/man3/krb5_crypto_getblocksize.3
-  /usr/share/man/man3/krb5_crypto_getconfoundersize.3
-  /usr/share/man/man3/krb5_crypto_getenctype.3
-  /usr/share/man/man3/krb5_crypto_getpadsize.3
-  /usr/share/man/man3/krb5_crypto_init.3
-  /usr/share/man/man3/krb5_crypto_overhead.3
-  /usr/share/man/man3/krb5_data.3
-  /usr/share/man/man3/krb5_data_alloc.3
-  /usr/share/man/man3/krb5_data_cmp.3
-  /usr/share/man/man3/krb5_data_copy.3
-  /usr/share/man/man3/krb5_data_free.3
-  /usr/share/man/man3/krb5_data_realloc.3
-  /usr/share/man/man3/krb5_data_zero.3
-  /usr/share/man/man3/krb5_decrypt.3
-  /usr/share/man/man3/krb5_decrypt_EncryptedData.3
-  /usr/share/man/man3/krb5_decrypt_ivec.3
-  /usr/share/man/man3/krb5_decrypt_ticket.3
-  /usr/share/man/man3/krb5_digest.3
-  /usr/share/man/man3/krb5_digest_alloc.3
-  /usr/share/man/man3/krb5_digest_free.3
-  /usr/share/man/man3/krb5_digest_get_a1_hash.3
-  /usr/share/man/man3/krb5_digest_get_client_binding.3
-  /usr/share/man/man3/krb5_digest_get_identifier.3
-  /usr/share/man/man3/krb5_digest_get_opaque.3
-  /usr/share/man/man3/krb5_digest_get_responseData.3
-  /usr/share/man/man3/krb5_digest_get_rsp.3
-  /usr/share/man/man3/krb5_digest_get_server_nonce.3
-  /usr/share/man/man3/krb5_digest_get_tickets.3
-  /usr/share/man/man3/krb5_digest_init_request.3
-  /usr/share/man/man3/krb5_digest_request.3
-  /usr/share/man/man3/krb5_digest_set_authentication_user.3
-  /usr/share/man/man3/krb5_digest_set_authid.3
-  /usr/share/man/man3/krb5_digest_set_client_nonce.3
-  /usr/share/man/man3/krb5_digest_set_digest.3
-  /usr/share/man/man3/krb5_digest_set_hostname.3
-  /usr/share/man/man3/krb5_digest_set_identifier.3
-  /usr/share/man/man3/krb5_digest_set_method.3
-  /usr/share/man/man3/krb5_digest_set_nonceCount.3
-  /usr/share/man/man3/krb5_digest_set_opaque.3
-  /usr/share/man/man3/krb5_digest_set_qop.3
-  /usr/share/man/man3/krb5_digest_set_realm.3
-  /usr/share/man/man3/krb5_digest_set_server_cb.3
-  /usr/share/man/man3/krb5_digest_set_server_nonce.3
-  /usr/share/man/man3/krb5_digest_set_type.3
-  /usr/share/man/man3/krb5_digest_set_uri.3
-  /usr/share/man/man3/krb5_digest_set_username.3
-  /usr/share/man/man3/krb5_domain_x500_decode.3
-  /usr/share/man/man3/krb5_domain_x500_encode.3
-  /usr/share/man/man3/krb5_eai_to_heim_errno.3
-  /usr/share/man/man3/krb5_encrypt.3
-  /usr/share/man/man3/krb5_encrypt_EncryptedData.3
-  /usr/share/man/man3/krb5_encrypt_ivec.3
-  /usr/share/man/man3/krb5_enctype_disable.3
-  /usr/share/man/man3/krb5_enctype_keysize.3
-  /usr/share/man/man3/krb5_enctype_to_string.3
-  /usr/share/man/man3/krb5_enctype_valid.3
-  /usr/share/man/man3/krb5_err.3
-  /usr/share/man/man3/krb5_error_from_rd_error.3
-  /usr/share/man/man3/krb5_errx.3
-  /usr/share/man/man3/krb5_expand_hostname.3
-  /usr/share/man/man3/krb5_expand_hostname_realms.3
-  /usr/share/man/man3/krb5_fcc_ops.3
-  /usr/share/man/man3/krb5_find_padata.3
-  /usr/share/man/man3/krb5_format_time.3
-  /usr/share/man/man3/krb5_free_address.3
-  /usr/share/man/man3/krb5_free_addresses.3
-  /usr/share/man/man3/krb5_free_authenticator.3
-  /usr/share/man/man3/krb5_free_checksum.3
-  /usr/share/man/man3/krb5_free_checksum_contents.3
-  /usr/share/man/man3/krb5_free_config_files.3
-  /usr/share/man/man3/krb5_free_context.3
-  /usr/share/man/man3/krb5_free_cred_contents.3
-  /usr/share/man/man3/krb5_free_creds.3
-  /usr/share/man/man3/krb5_free_data.3
-  /usr/share/man/man3/krb5_free_data_contents.3
-  /usr/share/man/man3/krb5_free_error.3
-  /usr/share/man/man3/krb5_free_error_contents.3
-  /usr/share/man/man3/krb5_free_error_string.3
-  /usr/share/man/man3/krb5_free_host_realm.3
-  /usr/share/man/man3/krb5_free_kdc_rep.3
-  /usr/share/man/man3/krb5_free_keyblock.3
-  /usr/share/man/man3/krb5_free_keyblock_contents.3
-  /usr/share/man/man3/krb5_free_krbhst.3
-  /usr/share/man/man3/krb5_free_principal.3
-  /usr/share/man/man3/krb5_free_salt.3
-  /usr/share/man/man3/krb5_free_ticket.3
-  /usr/share/man/man3/krb5_fwd_tgt_creds.3
+  /usr/share/man/man3/krb5_config.3.gz
+  /usr/share/man/man3/krb5_config_file_free.3.gz
+  /usr/share/man/man3/krb5_context.3.gz
+  /usr/share/man/man3/krb5_copy_creds.3.gz
+  /usr/share/man/man3/krb5_copy_host_realm.3.gz
+  /usr/share/man/man3/krb5_create_checksum.3.gz
+  /usr/share/man/man3/krb5_creds.3.gz
+  /usr/share/man/man3/krb5_crypto_destroy.3.gz
+  /usr/share/man/man3/krb5_crypto_getblocksize.3.gz
+  /usr/share/man/man3/krb5_crypto_init.3.gz
+  /usr/share/man/man3/krb5_data.3.gz
+  /usr/share/man/man3/krb5_data_zero.3.gz
+  /usr/share/man/man3/krb5_digest.3.gz
+  /usr/share/man/man3/krb5_digest_alloc.3.gz
+  /usr/share/man/man3/krb5_eai_to_heim_errno.3.gz
+  /usr/share/man/man3/krb5_encrypt.3.gz
+  /usr/share/man/man3/krb5_expand_hostname.3.gz
+  /usr/share/man/man3/krb5_expand_hostname_realms.3.gz
+  /usr/share/man/man3/krb5_find_padata.3.gz
+  /usr/share/man/man3/krb5_free_error.3.gz
+  /usr/share/man/man3/krb5_free_ticket.3.gz
+  /usr/share/man/man3/krb5_fwd_tgt_creds.3.gz
   /usr/share/man/man3/krb5_generate_random_block.3.gz
-  /usr/share/man/man3/krb5_generate_random_keyblock.3
-  /usr/share/man/man3/krb5_generate_subkey.3
-  /usr/share/man/man3/krb5_generate_subkey_extended.3
-  /usr/share/man/man3/krb5_get_all_client_addrs.3
-  /usr/share/man/man3/krb5_get_all_server_addrs.3
-  /usr/share/man/man3/krb5_get_cred_from_kdc.3
-  /usr/share/man/man3/krb5_get_cred_from_kdc_opt.3
-  /usr/share/man/man3/krb5_get_credentials.3
-  /usr/share/man/man3/krb5_get_credentials_with_flags.3
-  /usr/share/man/man3/krb5_get_creds.3
-  /usr/share/man/man3/krb5_get_creds_opt_add_options.3
-  /usr/share/man/man3/krb5_get_creds_opt_alloc.3
-  /usr/share/man/man3/krb5_get_creds_opt_free.3
-  /usr/share/man/man3/krb5_get_creds_opt_set_enctype.3
-  /usr/share/man/man3/krb5_get_creds_opt_set_impersonate.3
-  /usr/share/man/man3/krb5_get_creds_opt_set_options.3
-  /usr/share/man/man3/krb5_get_creds_opt_set_ticket.3
-  /usr/share/man/man3/krb5_get_default_config_files.3
-  /usr/share/man/man3/krb5_get_default_principal.3
-  /usr/share/man/man3/krb5_get_default_realm.3
-  /usr/share/man/man3/krb5_get_default_realms.3
-  /usr/share/man/man3/krb5_get_dns_canonize_hostname.3
-  /usr/share/man/man3/krb5_get_err_text.3
-  /usr/share/man/man3/krb5_get_error_message.3
-  /usr/share/man/man3/krb5_get_error_string.3
-  /usr/share/man/man3/krb5_get_extra_addresses.3
-  /usr/share/man/man3/krb5_get_fcache_version.3
-  /usr/share/man/man3/krb5_get_forwarded_creds.3
-  /usr/share/man/man3/krb5_get_host_realm.3
-  /usr/share/man/man3/krb5_get_ignore_addresses.3
-  /usr/share/man/man3/krb5_get_in_cred.3
-  /usr/share/man/man3/krb5_get_in_tkt.3
-  /usr/share/man/man3/krb5_get_in_tkt_with_keytab.3
-  /usr/share/man/man3/krb5_get_in_tkt_with_password.3
-  /usr/share/man/man3/krb5_get_in_tkt_with_skey.3
-  /usr/share/man/man3/krb5_get_init_creds.3
-  /usr/share/man/man3/krb5_get_init_creds_keytab.3
-  /usr/share/man/man3/krb5_get_init_creds_opt.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_alloc.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_free.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_init.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_address_list.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_addressless.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_anonymous.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_canonicalize.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_default_flags.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_etype_list.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_forwardable.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_pa_password.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_paq_request.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_preauth_list.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_proxiable.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_renew_life.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_salt.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_tkt_life.3
-  /usr/share/man/man3/krb5_get_init_creds_opt_set_win2k.3
-  /usr/share/man/man3/krb5_get_init_creds_password.3
-  /usr/share/man/man3/krb5_get_kdc_cred.3
-  /usr/share/man/man3/krb5_get_kdc_sec_offset.3
-  /usr/share/man/man3/krb5_get_krb524hst.3
-  /usr/share/man/man3/krb5_get_krb_admin_hst.3
-  /usr/share/man/man3/krb5_get_krb_changepw_hst.3
-  /usr/share/man/man3/krb5_get_krbhst.3
-  /usr/share/man/man3/krb5_get_max_time_skew.3
-  /usr/share/man/man3/krb5_get_pw_salt.3
-  /usr/share/man/man3/krb5_get_renewed_creds.3
-  /usr/share/man/man3/krb5_get_server_rcache.3
-  /usr/share/man/man3/krb5_get_use_admin_kdc.3
-  /usr/share/man/man3/krb5_get_warn_dest.3
-  /usr/share/man/man3/krb5_get_wrapped_length.3
+  /usr/share/man/man3/krb5_get_all_client_addrs.3.gz
+  /usr/share/man/man3/krb5_get_all_server_addrs.3.gz
+  /usr/share/man/man3/krb5_get_credentials.3.gz
+  /usr/share/man/man3/krb5_get_credentials_with_flags.3.gz
+  /usr/share/man/man3/krb5_get_creds.3.gz
+  /usr/share/man/man3/krb5_get_creds_opt_add_options.3.gz
+  /usr/share/man/man3/krb5_get_default_principal.3.gz
+  /usr/share/man/man3/krb5_get_forwarded_creds.3.gz
+  /usr/share/man/man3/krb5_get_in_cred.3.gz
+  /usr/share/man/man3/krb5_get_in_tkt.3.gz
+  /usr/share/man/man3/krb5_get_init_creds.3.gz
+  /usr/share/man/man3/krb5_get_init_creds_keytab.3.gz
+  /usr/share/man/man3/krb5_get_krb_admin_hst.3.gz
+  /usr/share/man/man3/krb5_get_krbhst.3.gz
   /usr/share/man/man3/krb5_getportbyname.3.gz
-  /usr/share/man/man3/krb5_h_addr2addr.3
-  /usr/share/man/man3/krb5_h_addr2sockaddr.3
-  /usr/share/man/man3/krb5_h_errno_to_heim_errno.3
-  /usr/share/man/man3/krb5_have_error_string.3
-  /usr/share/man/man3/krb5_hmac.3
-  /usr/share/man/man3/krb5_init_context.3
-  /usr/share/man/man3/krb5_init_ets.3
-  /usr/share/man/man3/krb5_initlog.3
+  /usr/share/man/man3/krb5_h_errno_to_heim_errno.3.gz
+  /usr/share/man/man3/krb5_init_context.3.gz
+  /usr/share/man/man3/krb5_initlog.3.gz
   /usr/share/man/man3/krb5_is_thread_safe.3.gz
-  /usr/share/man/man3/krb5_keyblock.3
-  /usr/share/man/man3/krb5_keyblock_get_enctype.3
-  /usr/share/man/man3/krb5_keyblock_init.3
-  /usr/share/man/man3/krb5_keyblock_zero.3
-  /usr/share/man/man3/krb5_keytab.3
-  /usr/share/man/man3/krb5_keytab_entry.3
-  /usr/share/man/man3/krb5_krbhst_format_string.3
-  /usr/share/man/man3/krb5_krbhst_free.3
-  /usr/share/man/man3/krb5_krbhst_get_addrinfo.3
-  /usr/share/man/man3/krb5_krbhst_init.3
-  /usr/share/man/man3/krb5_krbhst_init_flags.3
-  /usr/share/man/man3/krb5_krbhst_next.3
-  /usr/share/man/man3/krb5_krbhst_next_as_string.3
-  /usr/share/man/man3/krb5_krbhst_reset.3
-  /usr/share/man/man3/krb5_kt_add_entry.3
-  /usr/share/man/man3/krb5_kt_close.3
-  /usr/share/man/man3/krb5_kt_compare.3
-  /usr/share/man/man3/krb5_kt_copy_entry_contents.3
-  /usr/share/man/man3/krb5_kt_cursor.3
-  /usr/share/man/man3/krb5_kt_default.3
-  /usr/share/man/man3/krb5_kt_default_modify_name.3
-  /usr/share/man/man3/krb5_kt_default_name.3
-  /usr/share/man/man3/krb5_kt_end_seq_get.3
-  /usr/share/man/man3/krb5_kt_free_entry.3
-  /usr/share/man/man3/krb5_kt_get_entry.3
-  /usr/share/man/man3/krb5_kt_get_name.3
-  /usr/share/man/man3/krb5_kt_get_type.3
-  /usr/share/man/man3/krb5_kt_next_entry.3
-  /usr/share/man/man3/krb5_kt_ops.3
-  /usr/share/man/man3/krb5_kt_read_service_key.3
-  /usr/share/man/man3/krb5_kt_register.3
-  /usr/share/man/man3/krb5_kt_remove_entry.3
-  /usr/share/man/man3/krb5_kt_resolve.3
-  /usr/share/man/man3/krb5_kt_start_seq_get.3
+  /usr/share/man/man3/krb5_keyblock.3.gz
+  /usr/share/man/man3/krb5_keyblock_get_enctype.3.gz
+  /usr/share/man/man3/krb5_keytab.3.gz
+  /usr/share/man/man3/krb5_krbhst_init.3.gz
+  /usr/share/man/man3/krb5_krbhst_init_flags.3.gz
+  /usr/share/man/man3/krb5_kt_ops.3.gz
   /usr/share/man/man3/krb5_kuserok.3.gz
-  /usr/share/man/man3/krb5_log.3
-  /usr/share/man/man3/krb5_log_msg.3
-  /usr/share/man/man3/krb5_make_addrport.3
-  /usr/share/man/man3/krb5_make_principal.3
-  /usr/share/man/man3/krb5_max_sockaddr_size.3
-  /usr/share/man/man3/krb5_mcc_ops.3
-  /usr/share/man/man3/krb5_mk_priv.3
-  /usr/share/man/man3/krb5_mk_rep.3
-  /usr/share/man/man3/krb5_mk_rep_exact.3
-  /usr/share/man/man3/krb5_mk_rep_extended.3
-  /usr/share/man/man3/krb5_mk_req.3
-  /usr/share/man/man3/krb5_mk_req_exact.3
-  /usr/share/man/man3/krb5_mk_req_extended.3
-  /usr/share/man/man3/krb5_mk_safe.3
-  /usr/share/man/man3/krb5_openlog.3
-  /usr/share/man/man3/krb5_padata_add.3
-  /usr/share/man/man3/krb5_parse_address.3
-  /usr/share/man/man3/krb5_parse_name.3
-  /usr/share/man/man3/krb5_parse_name_flags.3
-  /usr/share/man/man3/krb5_parse_nametype.3
-  /usr/share/man/man3/krb5_passwd_result_to_string.3
-  /usr/share/man/man3/krb5_password_key_proc.3
-  /usr/share/man/man3/krb5_prepend_config_files.3
-  /usr/share/man/man3/krb5_prepend_config_files_default.3
-  /usr/share/man/man3/krb5_princ_realm.3
-  /usr/share/man/man3/krb5_princ_set_realm.3
-  /usr/share/man/man3/krb5_principal.3
-  /usr/share/man/man3/krb5_principal_compare.3
-  /usr/share/man/man3/krb5_principal_compare_any_realm.3
-  /usr/share/man/man3/krb5_principal_get_comp_string.3
-  /usr/share/man/man3/krb5_principal_get_realm.3
-  /usr/share/man/man3/krb5_principal_get_type.3
-  /usr/share/man/man3/krb5_principal_match.3
-  /usr/share/man/man3/krb5_principal_set_type.3
-  /usr/share/man/man3/krb5_print_address.3
-  /usr/share/man/man3/krb5_prompt.3
-  /usr/share/man/man3/krb5_prompter_posix.3
-  /usr/share/man/man3/krb5_pwcheck.3
-  /usr/share/man/man3/krb5_random_to_key.3
-  /usr/share/man/man3/krb5_rc_close.3
-  /usr/share/man/man3/krb5_rc_default.3
-  /usr/share/man/man3/krb5_rc_default_name.3
-  /usr/share/man/man3/krb5_rc_default_type.3
-  /usr/share/man/man3/krb5_rc_destroy.3
-  /usr/share/man/man3/krb5_rc_expunge.3
-  /usr/share/man/man3/krb5_rc_get_lifespan.3
-  /usr/share/man/man3/krb5_rc_get_name.3
-  /usr/share/man/man3/krb5_rc_get_type.3
-  /usr/share/man/man3/krb5_rc_initialize.3
-  /usr/share/man/man3/krb5_rc_recover.3
-  /usr/share/man/man3/krb5_rc_resolve.3
-  /usr/share/man/man3/krb5_rc_resolve_full.3
-  /usr/share/man/man3/krb5_rc_resolve_type.3
-  /usr/share/man/man3/krb5_rc_store.3
-  /usr/share/man/man3/krb5_rcache.3
-  /usr/share/man/man3/krb5_rd_error.3
-  /usr/share/man/man3/krb5_rd_priv.3
-  /usr/share/man/man3/krb5_rd_rep.3
-  /usr/share/man/man3/krb5_rd_req.3
-  /usr/share/man/man3/krb5_rd_req_with_keyblock.3
-  /usr/share/man/man3/krb5_rd_safe.3
-  /usr/share/man/man3/krb5_realm_compare.3
-  /usr/share/man/man3/krb5_ret_address.3
-  /usr/share/man/man3/krb5_ret_addrs.3
-  /usr/share/man/man3/krb5_ret_authdata.3
-  /usr/share/man/man3/krb5_ret_creds.3
-  /usr/share/man/man3/krb5_ret_data.3
-  /usr/share/man/man3/krb5_ret_int16.3
-  /usr/share/man/man3/krb5_ret_int32.3
-  /usr/share/man/man3/krb5_ret_int8.3
-  /usr/share/man/man3/krb5_ret_keyblock.3
-  /usr/share/man/man3/krb5_ret_principal.3
-  /usr/share/man/man3/krb5_ret_string.3
-  /usr/share/man/man3/krb5_ret_stringnl.3
-  /usr/share/man/man3/krb5_ret_stringz.3
-  /usr/share/man/man3/krb5_ret_times.3
-  /usr/share/man/man3/krb5_ret_uint16.3
-  /usr/share/man/man3/krb5_ret_uint32.3
-  /usr/share/man/man3/krb5_ret_uint8.3
-  /usr/share/man/man3/krb5_set_config_files.3
-  /usr/share/man/man3/krb5_set_default_realm.3
-  /usr/share/man/man3/krb5_set_dns_canonize_hostname.3
-  /usr/share/man/man3/krb5_set_error_string.3
-  /usr/share/man/man3/krb5_set_extra_addresses.3
-  /usr/share/man/man3/krb5_set_fcache_version.3
-  /usr/share/man/man3/krb5_set_ignore_addresses.3
-  /usr/share/man/man3/krb5_set_max_time_skew.3
-  /usr/share/man/man3/krb5_set_password.3
-  /usr/share/man/man3/krb5_set_password_using_ccache.3
-  /usr/share/man/man3/krb5_set_real_time.3
-  /usr/share/man/man3/krb5_set_use_admin_kdc.3
-  /usr/share/man/man3/krb5_set_warn_dest.3
-  /usr/share/man/man3/krb5_sname_to_principal.3
-  /usr/share/man/man3/krb5_sock_to_principal.3
-  /usr/share/man/man3/krb5_sockaddr2address.3
-  /usr/share/man/man3/krb5_sockaddr2port.3
-  /usr/share/man/man3/krb5_sockaddr_uninteresting.3
-  /usr/share/man/man3/krb5_storage.3
-  /usr/share/man/man3/krb5_storage_clear_flags.3
-  /usr/share/man/man3/krb5_storage_emem.3
-  /usr/share/man/man3/krb5_storage_free.3
-  /usr/share/man/man3/krb5_storage_from_data.3
-  /usr/share/man/man3/krb5_storage_from_fd.3
-  /usr/share/man/man3/krb5_storage_from_mem.3
-  /usr/share/man/man3/krb5_storage_get_byteorder.3
-  /usr/share/man/man3/krb5_storage_is_flags.3
-  /usr/share/man/man3/krb5_storage_read.3
-  /usr/share/man/man3/krb5_storage_seek.3
-  /usr/share/man/man3/krb5_storage_set_byteorder.3
-  /usr/share/man/man3/krb5_storage_set_eof_code.3
-  /usr/share/man/man3/krb5_storage_set_flags.3
-  /usr/share/man/man3/krb5_storage_to_data.3
-  /usr/share/man/man3/krb5_storage_write.3
-  /usr/share/man/man3/krb5_store_address.3
-  /usr/share/man/man3/krb5_store_addrs.3
-  /usr/share/man/man3/krb5_store_authdata.3
-  /usr/share/man/man3/krb5_store_creds.3
-  /usr/share/man/man3/krb5_store_data.3
-  /usr/share/man/man3/krb5_store_int16.3
-  /usr/share/man/man3/krb5_store_int32.3
-  /usr/share/man/man3/krb5_store_int8.3
-  /usr/share/man/man3/krb5_store_keyblock.3
-  /usr/share/man/man3/krb5_store_principal.3
-  /usr/share/man/man3/krb5_store_string.3
-  /usr/share/man/man3/krb5_store_stringnl.3
-  /usr/share/man/man3/krb5_store_stringz.3
-  /usr/share/man/man3/krb5_store_times.3
-  /usr/share/man/man3/krb5_store_uint16.3
-  /usr/share/man/man3/krb5_store_uint32.3
-  /usr/share/man/man3/krb5_store_uint8.3
-  /usr/share/man/man3/krb5_string_to_deltat.3
-  /usr/share/man/man3/krb5_string_to_enctype.3
-  /usr/share/man/man3/krb5_string_to_key.3
-  /usr/share/man/man3/krb5_string_to_key_data.3
-  /usr/share/man/man3/krb5_string_to_key_data_salt.3
-  /usr/share/man/man3/krb5_string_to_key_data_salt_opaque.3
-  /usr/share/man/man3/krb5_string_to_key_salt.3
-  /usr/share/man/man3/krb5_string_to_key_salt_opaque.3
-  /usr/share/man/man3/krb5_ticket.3
-  /usr/share/man/man3/krb5_ticket_get_authorization_data_type.3
-  /usr/share/man/man3/krb5_ticket_get_client.3
-  /usr/share/man/man3/krb5_ticket_get_endtime.3
-  /usr/share/man/man3/krb5_ticket_get_server.3
-  /usr/share/man/man3/krb5_timeofday.3
-  /usr/share/man/man3/krb5_unparse_name.3
-  /usr/share/man/man3/krb5_unparse_name_fixed.3
-  /usr/share/man/man3/krb5_unparse_name_fixed_flags.3
-  /usr/share/man/man3/krb5_unparse_name_fixed_short.3
-  /usr/share/man/man3/krb5_unparse_name_flags.3
-  /usr/share/man/man3/krb5_unparse_name_short.3
-  /usr/share/man/man3/krb5_us_timeofday.3
-  /usr/share/man/man3/krb5_vabort.3
-  /usr/share/man/man3/krb5_vabortx.3
-  /usr/share/man/man3/krb5_verify_ap_req.3
-  /usr/share/man/man3/krb5_verify_checksum.3
-  /usr/share/man/man3/krb5_verify_init_creds.3
-  /usr/share/man/man3/krb5_verify_init_creds_opt_init.3
-  /usr/share/man/man3/krb5_verify_init_creds_opt_set_ap_req_nofail.3
-  /usr/share/man/man3/krb5_verify_opt_alloc.3
-  /usr/share/man/man3/krb5_verify_opt_free.3
-  /usr/share/man/man3/krb5_verify_opt_init.3
-  /usr/share/man/man3/krb5_verify_opt_set_ccache.3
-  /usr/share/man/man3/krb5_verify_opt_set_flags.3
-  /usr/share/man/man3/krb5_verify_opt_set_keytab.3
-  /usr/share/man/man3/krb5_verify_opt_set_secure.3
-  /usr/share/man/man3/krb5_verify_opt_set_service.3
-  /usr/share/man/man3/krb5_verify_user.3
-  /usr/share/man/man3/krb5_verify_user_lrealm.3
-  /usr/share/man/man3/krb5_verify_user_opt.3
-  /usr/share/man/man3/krb5_verr.3
-  /usr/share/man/man3/krb5_verrx.3
-  /usr/share/man/man3/krb5_vlog.3
-  /usr/share/man/man3/krb5_vlog_msg.3
-  /usr/share/man/man3/krb5_vset_error_string.3
-  /usr/share/man/man3/krb5_vwarn.3
-  /usr/share/man/man3/krb5_vwarnx.3
-  /usr/share/man/man3/krb5_warn.3
-  /usr/share/man/man3/krb5_warnx.3
-  /usr/share/man/man3/krb_afslog.3
-  /usr/share/man/man3/krb_afslog_uid.3
-  /usr/share/man/man3/parse_time.3
-  /usr/share/man/man3/print_time_table.3
-  /usr/share/man/man3/rtbl.3
-  /usr/share/man/man3/rtbl_add_column.3
-  /usr/share/man/man3/rtbl_add_column_by_id.3
-  /usr/share/man/man3/rtbl_add_column_entry.3
-  /usr/share/man/man3/rtbl_add_column_entry_by_id.3
-  /usr/share/man/man3/rtbl_create.3
-  /usr/share/man/man3/rtbl_destroy.3
-  /usr/share/man/man3/rtbl_format.3
-  /usr/share/man/man3/rtbl_get_flags.3
-  /usr/share/man/man3/rtbl_new_row.3
-  /usr/share/man/man3/rtbl_set_column_affix_by_id.3
-  /usr/share/man/man3/rtbl_set_column_prefix.3
-  /usr/share/man/man3/rtbl_set_flags.3
-  /usr/share/man/man3/rtbl_set_prefix.3
-  /usr/share/man/man3/rtbl_set_separator.3
-  /usr/share/man/man3/unparse_time.3
-  /usr/share/man/man3/unparse_time_approx.3
+  /usr/share/man/man3/krb5_mk_priv.3.gz
+  /usr/share/man/man3/krb5_mk_req.3.gz
+  /usr/share/man/man3/krb5_mk_req_exact.3.gz
+  /usr/share/man/man3/krb5_mk_safe.3.gz
+  /usr/share/man/man3/krb5_openlog.3.gz
+  /usr/share/man/man3/krb5_padata_add.3.gz
+  /usr/share/man/man3/krb5_parse_name.3.gz
+  /usr/share/man/man3/krb5_principal.3.gz
+  /usr/share/man/man3/krb5_pwcheck.3.gz
+  /usr/share/man/man3/krb5_rc_close.3.gz
+  /usr/share/man/man3/krb5_rcache.3.gz
+  /usr/share/man/man3/krb5_rd_error.3.gz
+  /usr/share/man/man3/krb5_rd_priv.3.gz
+  /usr/share/man/man3/krb5_rd_safe.3.gz
+  /usr/share/man/man3/krb5_set_default_realm.3.gz
+  /usr/share/man/man3/krb5_set_password.3.gz
+  /usr/share/man/man3/krb5_set_real_time.3.gz
+  /usr/share/man/man3/krb5_storage.3.gz
+  /usr/share/man/man3/krb5_storage_emem.3.gz
+  /usr/share/man/man3/krb5_string_to_key.3.gz
+  /usr/share/man/man3/krb5_string_to_key_data.3.gz
+  /usr/share/man/man3/krb5_ticket.3.gz
+  /usr/share/man/man3/krb5_timeofday.3.gz
+  /usr/share/man/man3/krb5_unparse_name.3.gz
+  /usr/share/man/man3/krb5_verify_init_creds.3.gz
+  /usr/share/man/man3/krb5_verify_init_creds_opt_init.3.gz
+  /usr/share/man/man3/krb5_verify_user.3.gz
+  /usr/share/man/man3/krb5_verify_user_lrealm.3.gz
+  /usr/share/man/man3/krb5_warn.3.gz
+  /usr/share/man/man3/parse_time.3.gz
+  /usr/share/man/man3/print_time_table.3.gz
+  /usr/share/man/man3/rtbl.3.gz
+  /usr/share/man/man3/rtbl_create.3.gz
 
 ------------------
 
 Port Notes:
 
------ version 1.1-1 -----
-Version bump.
-ABI version bumps for libhx509 and libkrb5.
-
------ version 1.0.1-1 -----
-Version bump.
-ABI version bumps for libasn1 and libgssapi.
-Fixed libkdc packaging.
-
------ version 0.8.1-1 -----
-Initial release for Cygwin.
+----- version 1.2.1-1 -----
+Initial release for Cygwin 1.7.
 
 
 Cygwin port maintained by:
