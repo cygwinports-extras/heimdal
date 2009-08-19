@@ -4,10 +4,10 @@ Heimdal is an implementation of Kerberos 5, largely written in Sweden.
 It is freely available under a three clause BSD style license.
 
 Runtime requirements:
-  cygwin-1.7.0-50
+  cygwin-1.7.0-58
   crypt-1.1-1
-  libcom_err2-1.41.7-1
-  libdb4.6-4.6.21.4-10
+  libcom_err2-1.41.8-1
+  libdb4.5-4.5.20.2-2
   libgcc1-4.3.2-2
   libopenldap2_3_0-2.3.43-1
   libreadline6-5.2.13-11
@@ -23,11 +23,11 @@ Build requirements:
   automake1.10-1.10.2-10
   binutils-20080624-2
   bison-2.3-1
-  cygport-0.9.7-1
+  cygport-0.9.9-1
   flex-2.5.35-1
   gawk-3.1.6-2
   gcc4-core-4.3.2-2
-  libtool-2.2.7a-13
+  libtool-2.2.7a-14
   make-3.81-2
   sed-4.1.5-2
 

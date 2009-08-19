@@ -15,6 +15,7 @@ PATCH_URI="
 	mirror://portage/app-crypt/${PN}/files/${PN}-symlinked-manpages.patch
 	mirror://portage/app-crypt/${PN}/files/${PN}-autoconf-ipv6-backport.patch
 	1.2.1-no-editline.patch
+	1.2.1-no-stdcall.patch
 	1.2.1-test-modules.patch
 	1.2.1-test-snprintf.patch
 "
@@ -49,22 +50,16 @@ src_compile() {
 	cygconf \
 		--libexecdir=/usr/sbin \
 		--enable-shared \
-		--with-berkeley-db=/usr \
 		--with-openldap=/usr \
 		--with-openssl=/usr \
     	--with-readline=/usr --with-readline-include=/usr/include/readline
 
-	cygmake LDFLAGS="${LDFLAGS} -no-undefined"
+	cygmake LDFLAGS="${LDFLAGS} -no-undefined" -j1
 }
 
 src_install() {
 	cd ${B}
 	INSTALL_CATPAGES="no" cyginstall
-
-#	mv ${D}/usr/lib/bin/*.dll ${D}/usr/bin
-#	rmdir ${D}/usr/lib/bin/
-#	sed -i -e 's#\.\./bin#../../bin#g' ${D}/usr/lib/${PN}/*.la
-#	mv ${D}/usr/lib/${PN}/pkgconfig ${D}/usr/lib/
 
 	for a in ftp login rcp rsh su telnet
 	do
@@ -77,6 +72,4 @@ src_install() {
 		mv ${D}/usr/sbin/{,k}${s}.exe
 		mv ${D}/usr/share/man/man8/{,k}${s}.8
 	done
-
-#	rm -fr ${D}/usr/share/man/cat*
 }

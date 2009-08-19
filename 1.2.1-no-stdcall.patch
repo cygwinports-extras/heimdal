@@ -1,0 +1,240 @@
+--- origsrc/heimdal-1.2.1/cf/make-proto.pl	2008-07-28 07:04:49.000000000 -0500
++++ src/heimdal-1.2.1/cf/make-proto.pl	2009-08-19 13:31:06.866340500 -0500
+@@ -307,7 +307,7 @@ extern \"C\" {
+ }
+ if ($opt_E) {
+     $public_h_header .= "#ifndef $opt_E
+-#if defined(_WIN32)
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ${opt_E}_FUNCTION _stdcall __declspec(dllimport)
+ #define ${opt_E}_VARIABLE __declspec(dllimport)
+ #else
+@@ -319,7 +319,7 @@ if ($opt_E) {
+ ";
+     
+     $private_h_header .= "#ifndef $opt_E
+-#if defined(_WIN32)
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ${opt_E}_FUNCTION _stdcall __declspec(dllimport)
+ #define ${opt_E}_VARIABLE __declspec(dllimport)
+ #else
+--- origsrc/heimdal-1.2.1/cf/win32.m4	2008-07-28 07:04:49.000000000 -0500
++++ src/heimdal-1.2.1/cf/win32.m4	2009-08-19 13:31:38.098067700 -0500
+@@ -2,7 +2,7 @@ dnl $Id: win32.m4 23019 2008-04-17 10:01
+ dnl rk_WIN32_EXPORT buildsymbol symbol-that-export
+ AC_DEFUN([rk_WIN32_EXPORT],[AH_TOP([#ifdef $1
+ #ifndef $2
+-#ifdef _WIN32_
++#if defined (_WIN32) && !defined(__CYGWIN__)
+ #define $2_FUNCTION __declspec(dllexport) _stdcall
+ #define $2_VARIABLE __declspec(dllexport)
+ #else
+--- origsrc/heimdal-1.2.1/lib/gssapi/gssapi/gssapi.h	2009-08-19 13:34:06.794089700 -0500
++++ src/heimdal-1.2.1/lib/gssapi/gssapi/gssapi.h	2009-08-19 13:21:51.000000000 -0500
+@@ -44,7 +44,7 @@
+ #include <krb5-types.h>
+ 
+ #ifndef BUILD_GSSAPI_LIB
+-#if defined(_WIN32)
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define GSSAPI_LIB_FUNCTION _stdcall __declspec(dllimport)
+ #define GSSAPI_LIB_VARIABLE __declspec(dllimport)
+ #else
+--- origsrc/heimdal-1.2.1/lib/hx509/hx509-protos.h	2009-08-19 13:34:06.806589900 -0500
++++ src/heimdal-1.2.1/lib/hx509/hx509-protos.h	2009-08-19 13:21:51.000000000 -0500
+@@ -9,7 +9,7 @@ extern "C" {
+ #endif
+ 
+ #ifndef HX509_LIB
+-#if defined(_WIN32)
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define HX509_LIB_FUNCTION _stdcall __declspec(dllimport)
+ #define HX509_LIB_VARIABLE __declspec(dllimport)
+ #else
+--- origsrc/heimdal-1.2.1/lib/krb5/krb5-protos.h	2009-08-19 13:34:06.816590000 -0500
++++ src/heimdal-1.2.1/lib/krb5/krb5-protos.h	2009-08-19 13:21:51.000000000 -0500
+@@ -13,7 +13,7 @@ extern "C" {
+ #endif
+ 
+ #ifndef KRB5_LIB
+-#if defined(_WIN32)
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define KRB5_LIB_FUNCTION _stdcall __declspec(dllimport)
+ #define KRB5_LIB_VARIABLE __declspec(dllimport)
+ #else
+--- origsrc/heimdal-1.2.1/lib/roken/base64.h	2008-07-28 07:04:48.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/base64.h	2009-08-19 13:32:27.708825700 -0500
+@@ -37,7 +37,7 @@
+ #define _BASE64_H_
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/err.hin	2008-07-28 07:04:48.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/err.hin	2009-08-19 13:32:34.108923500 -0500
+@@ -47,7 +47,7 @@
+ #endif
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/fnmatch.hin	2008-07-28 07:04:48.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/fnmatch.hin	2009-08-19 13:32:39.285252600 -0500
+@@ -35,7 +35,7 @@
+ #define	_FNMATCH_H_
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/getarg.h	2008-07-28 07:04:48.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/getarg.h	2009-08-19 13:32:47.532878600 -0500
+@@ -39,7 +39,7 @@
+ #include <stddef.h>
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/glob.hin	2008-07-28 07:04:49.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/glob.hin	2009-08-19 13:32:51.965446300 -0500
+@@ -36,7 +36,7 @@
+ #define	_GLOB_H_
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/hex.h	2008-07-28 07:04:48.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/hex.h	2009-08-19 13:32:56.389263900 -0500
+@@ -37,7 +37,7 @@
+ #define _rk_HEX_H_ 1
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/ifaddrs.hin	2008-07-28 07:04:49.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/ifaddrs.hin	2009-08-19 13:33:00.773080900 -0500
+@@ -37,7 +37,7 @@
+ #define __ifaddrs_h__
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/ndbm_wrap.h	2008-07-28 07:04:48.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/ndbm_wrap.h	2009-08-19 13:33:05.085646800 -0500
+@@ -40,7 +40,7 @@
+ #include <sys/types.h>
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/parse_bytes.h	2008-07-28 07:04:48.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/parse_bytes.h	2009-08-19 13:33:10.358227400 -0500
+@@ -37,7 +37,7 @@
+ #define __PARSE_BYTES_H__
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/parse_time.h	2008-07-28 07:04:49.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/parse_time.h	2009-08-19 13:33:14.525791100 -0500
+@@ -37,7 +37,7 @@
+ #define __PARSE_TIME_H__
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/parse_units.h	2008-07-28 07:04:48.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/parse_units.h	2009-08-19 13:33:19.318364300 -0500
+@@ -40,7 +40,7 @@
+ #include <stddef.h>
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/resolve.h	2008-07-28 07:04:49.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/resolve.h	2009-08-19 13:33:24.325940800 -0500
+@@ -37,7 +37,7 @@
+ #define __RESOLVE_H__
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/roken-common.h	2009-08-19 13:34:06.824090200 -0500
++++ src/heimdal-1.2.1/lib/roken/roken-common.h	2009-08-19 13:21:51.000000000 -0500
+@@ -37,7 +37,7 @@
+ #define __ROKEN_COMMON_H__
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/rtbl.h	2008-07-28 07:04:48.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/rtbl.h	2009-08-19 13:33:34.607347900 -0500
+@@ -36,7 +36,7 @@
+ #define __rtbl_h__
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/vis.h	2008-07-28 07:06:48.000000000 -0500
++++ src/heimdal-1.2.1/lib/roken/vis.h	2009-08-19 13:33:39.487422500 -0500
+@@ -36,7 +36,7 @@
+ #define	_VIS_H_
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION
+--- origsrc/heimdal-1.2.1/lib/roken/vis.hin	2009-08-19 13:34:06.831590300 -0500
++++ src/heimdal-1.2.1/lib/roken/vis.hin	2009-08-19 13:21:51.000000000 -0500
+@@ -36,7 +36,7 @@
+ #define	_VIS_H_
+ 
+ #ifndef ROKEN_LIB_FUNCTION
+-#ifdef _WIN32
++#if defined(_WIN32) && !defined(__CYGWIN__)
+ #define ROKEN_LIB_FUNCTION _stdcall
+ #else
+ #define ROKEN_LIB_FUNCTION

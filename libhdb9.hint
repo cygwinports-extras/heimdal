@@ -1,5 +1,5 @@
 category: Net
-requires: libasn1_8 libcom_err2 libdb4.6 libgcc1 libkrb5_25 libopenldap2_3_0 libroken18
+requires: libasn1_8 libcom_err2 libdb4.5 libgcc1 libkrb5_25 libopenldap2_3_0 libroken18
 external-source: heimdal
 sdesc: "Heimdal Kerberos 5 (HDB library)"
 ldesc: "Heimdal is an implementation of Kerberos 5, largely written in 
