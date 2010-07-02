@@ -2,30 +2,16 @@ DESCRIPTION="Kerberos 5 implementation"
 HOMEPAGE="http://www.h5l.org/"
 SRC_URI="http://www.h5l.org/dist/src/${P}.tar.gz
          http://www.h5l.org/dist/src/${P}.tar.gz.asc"
-# archmobile.org: relevant patches from gentoo patch tarball as plaintext
 PATCH_URI="
-	http://archmobile.org/trac/browser/core/heimdal/001_all_heimdal-no_libedit.patch?format=txt
-	http://archmobile.org/trac/browser/core/heimdal/003_all_heimdal-rxapps.patch?format=txt
-	http://archmobile.org/trac/browser/core/heimdal/014_all_heimdal-path.patch?format=txt
-	http://archmobile.org/trac/browser/core/heimdal/022_all_heimdal-as-needed.patch?format=txt
-	mirror://portage/app-crypt/${PN}/files/${PN}-r23238-kb5_locl_h-wind_h.patch
-	mirror://portage/app-crypt/${PN}/files/${PN}-r23235-kb5-libwind_la.patch
-	mirror://portage/app-crypt/${PN}/files/${PN}-kdc-sans_pkinit.patch
-	mirror://portage/app-crypt/${PN}/files/${PN}-system_sqlite.patch
-	mirror://portage/app-crypt/${PN}/files/${PN}-symlinked-manpages.patch
-	mirror://portage/app-crypt/${PN}/files/${PN}-autoconf-ipv6-backport.patch
-	1.2.1-no-editline.patch
-	1.2.1-no-stdcall.patch
 	1.2.1-test-modules.patch
-	1.2.1-test-snprintf.patch
 "
 PKG_NAMES="${PN} libkrb5-devel"
 heimdal_CONTENTS="--exclude=usr/bin/*.dll --exclude=*-config --exclude=man3
                   usr/bin/ usr/sbin/ usr/share/"
 libkrb5_devel_CONTENTS="usr/bin/krb5-config usr/include/ usr/lib/ usr/share/man/man3/"
 
-for lv in asn1:8 gssapi:2 hdb:9 heimntlm:0 hx509:4 kadm5clnt:7 kadm5srv:8 \
-          kafs:0 kdc:2 krb5:25 otp:0 roken:18 sl:0 wind:0
+for lv in asn1:8 gssapi:2 hdb:9 heimntlm:0 hx509:5 kadm5clnt:7 kadm5srv:8 \
+          kafs:0 kdc:2 krb5:26 otp:0 roken:18 sl:0 wind:0
 do
 	l=${lv%:*}
 	v=${lv##*:}
@@ -50,8 +36,10 @@ src_compile() {
 	cygconf \
 		--libexecdir=/usr/sbin \
 		--enable-shared \
+		--with-libintl=/usr \
 		--with-openldap=/usr \
 		--with-openssl=/usr \
+		--with-sqlite3=/usr \
     	--with-readline=/usr --with-readline-include=/usr/include/readline
 
 	cygmake LDFLAGS="${LDFLAGS} -no-undefined" -j1

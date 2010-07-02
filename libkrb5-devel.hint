@@ -1,5 +1,5 @@
 category: Net
-requires: libasn1_8 libgssapi2 libhdb9 libheimntlm0 libhx509_4 libkadm5clnt7 libkadm5srv8 libkafs0 libkdc2 libkrb5_25 libotp0 libroken18 libsl0 libwind0 crypt libdb4.5-devel readline openldap-devel openssl-devel
+requires: libasn1_8 libgssapi2 libhdb9 libheimntlm0 libhx509_5 libkadm5clnt7 libkadm5srv8 libkafs0 libkdc2 libkrb5_26 libotp0 libroken18 libsl0 libwind0 crypt libdb4.5-devel readline openldap-devel openssl-devel
 external-source: heimdal
 sdesc: "Heimdal Kerberos 5 (development)"
 ldesc: "Heimdal is an implementation of Kerberos 5, largely written in 
