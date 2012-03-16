@@ -1,5 +1,5 @@
 category: Net
-requires: libasn1_8 libcom_err2 libroken18 libwind0 libopenssl098
+requires: libasn1_8 libcom_err2 libroken18 libwind0 libopenssl100
 external-source: heimdal
 sdesc: "Heimdal Kerberos 5 (HX509 library)"
 ldesc: "Heimdal is an implementation of Kerberos 5, largely written in 

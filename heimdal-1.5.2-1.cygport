@@ -4,6 +4,7 @@ SRC_URI="http://www.h5l.org/dist/src/${P}.tar.gz
          http://www.h5l.org/dist/src/${P}.tar.gz.asc"
 PATCH_URI="
 	1.2.1-test-modules.patch
+	1.5.2-install-catman.patch
 "
 PKG_NAMES="${PN} libkrb5-devel"
 heimdal_CONTENTS="--exclude=usr/bin/*.dll --exclude=*-config --exclude=man3
@@ -34,20 +35,20 @@ src_compile() {
 
 	# these libexec_PROGRAMS are just servers
 	cygconf \
+		--disable-static \
 		--libexecdir=/usr/sbin \
-		--enable-shared \
 		--with-libintl=/usr \
 		--with-openldap=/usr \
 		--with-openssl=/usr \
 		--with-sqlite3=/usr \
-    	--with-readline=/usr --with-readline-include=/usr/include/readline
+		--with-readline=/usr --with-readline-include=/usr/include/readline
 
 	cygmake LDFLAGS="${LDFLAGS} -no-undefined" -j1
 }
 
 src_install() {
 	cd ${B}
-	INSTALL_CATPAGES="no" cyginstall
+	INSTALL_CATPAGES="no" cyginstall libexec_heimdaldir=/usr/lib/${PN}
 
 	for a in ftp login rcp rsh su telnet
 	do
@@ -61,3 +62,5 @@ src_install() {
 		mv ${D}/usr/share/man/man8/{,k}${s}.8
 	done
 }
+
+KEEP_LA_FILES="none"
