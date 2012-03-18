@@ -1,5 +1,5 @@
 category: Net
-requires: libdb5.2 libopenssl100
+requires: libdb4.8 libopenssl100
 external-source: heimdal
 sdesc: "Heimdal Kerberos 5 (OTP library)"
 ldesc: "Heimdal is an implementation of Kerberos 5, largely written in 
