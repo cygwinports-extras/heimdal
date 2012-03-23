@@ -5,6 +5,7 @@ SRC_URI="http://www.h5l.org/dist/src/${P}.tar.gz
 PATCH_URI="
 	1.2.1-test-modules.patch
 	1.5.2-install-catman.patch
+	1.5.2-hdbdir.patch
 "
 PKG_NAMES="${PN} libkrb5-devel"
 heimdal_CONTENTS="--exclude=usr/bin/*.dll --exclude=*-config --exclude=man3
@@ -18,14 +19,14 @@ do
 	v=${lv##*:}
 	case ${l} in
 		*[0-9])	lp="lib${l}_${v}" ;;
-		*)		lp="lib${l}${v}" ;;
+		*)	lp="lib${l}${v}" ;;
 	esac
 	PKG_NAMES+=" ${lp}"
 	declare ${lp}_CONTENTS="usr/bin/cyg${l}-${v}.dll"
 done
 unset l lp lv v
 
-DIFF_EXCLUDES="heimdal.info"
+DIFF_EXCLUDES="heimdal.info vars.texi"
 
 src_compile() {
 	cd ${S}
@@ -37,18 +38,19 @@ src_compile() {
 	cygconf \
 		--disable-static \
 		--libexecdir=/usr/sbin \
+		--with-hdbdir=/var/lib/heimdal \
 		--with-libintl=/usr \
 		--with-openldap=/usr \
 		--with-openssl=/usr \
 		--with-sqlite3=/usr \
-		--with-readline=/usr --with-readline-include=/usr/include/readline
+		--with-libedit=/usr --with-libedit-include=/usr/include/editline
 
 	cygmake LDFLAGS="${LDFLAGS} -no-undefined" -j1
 }
 
 src_install() {
 	cd ${B}
-	INSTALL_CATPAGES="no" cyginstall libexec_heimdaldir=/usr/lib/${PN}
+	INSTALL_CATPAGES="no" cyginstall libexec_heimdaldir=/usr/bin
 
 	for a in ftp login rcp rsh su telnet
 	do
