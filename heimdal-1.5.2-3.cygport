@@ -6,6 +6,7 @@ PATCH_URI="
 	1.2.1-test-modules.patch
 	1.5.2-install-catman.patch
 	1.5.2-hdbdir.patch
+	1.5.2-roken-signal.patch
 "
 PKG_NAMES="${PN} libkrb5-devel"
 heimdal_CONTENTS="--exclude=usr/bin/*.dll --exclude=*-config --exclude=man3
