@@ -1,0 +1,95 @@
+NAME="heimdal"
+VERSION=1.5.2
+RELEASE=4
+CATEGORY="Net"
+SUMMARY="Kerberos 5 implementation"
+DESCRIPTION="Heimdal is an implementation of Kerberos 5, largely written in
+Sweden. It is freely available under a three clause BSD style license."
+HOMEPAGE="http://www.h5l.org/"
+SRC_URI="http://www.h5l.org/dist/src/${P}.tar.gz
+         http://www.h5l.org/dist/src/${P}.tar.gz.asc"
+PATCH_URI="
+	1.2.1-test-modules.patch
+	1.5.2-install-catman.patch
+	1.5.2-hdbdir.patch
+	1.5.2-roken-signal.patch
+"
+PKG_NAMES="${PN} libkrb5_26 libasn1_8 libgssapi3 libhdb9 libheimbase1
+           libheimntlm0 libhx509_5 libkadm5clnt7 libkadm5srv8 libkafs0 libkdc2
+           libotp0 libroken18 libsl0 libwind0 libkrb5-devel"
+heimdal_SUMMARY="${SUMMARY} clients and servers"
+heimdal_CONTENTS="--exclude=usr/bin/*.dll --exclude=*-config --exclude=man3
+                  usr/bin/ usr/sbin/ usr/share/"
+libasn1_8_SUMMARY="${SUMMARY} (ASN.1 library)"
+libasn1_8_CONTENTS="usr/bin/cygasn1-8.dll"
+libgssapi3_SUMMARY="${SUMMARY} (GSSAPI library)"
+libgssapi3_CONTENTS="usr/bin/cyggssapi-3.dll"
+libhdb9_SUMMARY="${SUMMARY} (HDB library)"
+libhdb9_CONTENTS="usr/bin/cyghdb-9.dll"
+libheimbase1_SUMMARY="${SUMMARY} (base library)"
+libheimbase1_CONTENTS="usr/bin/cygheimbase-1.dll"
+libheimntlm0_SUMMARY="${SUMMARY} (NTLM library)"
+libheimntlm0_CONTENTS="usr/bin/cygheimntlm-0.dll"
+libhx509_5_SUMMARY="${SUMMARY} (HX509 library)"
+libhx509_5_CONTENTS="usr/bin/cyghx509-5.dll"
+libkadm5clnt7_SUMMARY="${SUMMARY} (kadm5 client library)"
+libkadm5clnt7_CONTENTS="usr/bin/cygkadm5clnt-7.dll"
+libkadm5srv8_SUMMARY="${SUMMARY} (kadm5 server library)"
+libkadm5srv8_CONTENTS="usr/bin/cygkadm5srv-8.dll"
+libkafs0_SUMMARY="${SUMMARY} (AFS library)"
+libkafs0_CONTENTS="usr/bin/cygkafs-0.dll"
+libkdc2_SUMMARY="${SUMMARY} (KDC library)"
+libkdc2_CONTENTS="usr/bin/cygkdc-2.dll"
+libkrb5_26_SUMMARY="${SUMMARY} (Krb5 library)"
+libkrb5_26_CONTENTS="usr/bin/cygkrb5-26.dll"
+libotp0_SUMMARY="${SUMMARY} (OTP library)"
+libotf0_CONTENTS="usr/bin/cygotp-0.dll"
+libroken18_SUMMARY="${SUMMARY} (Roken library)"
+libroken18_CONTENTS="usr/bin/cygroken-18.dll"
+libsl0_SUMMARY="${SUMMARY} (sl library)"
+libsl0_CONTENTS="usr/bin/cygsl-0.dll"
+libwind0_SUMMARY="${SUMMARY} (wind library)"
+libwind0_CONTENTS="usr/bin/cygwind-0.dll"
+libkrb5_devel_SUMMARY="${SUMMARY} (library development)"
+libkrb5_devel_CONTENTS="usr/bin/krb5-config usr/include/ usr/lib/ usr/share/man/man3/"
+
+DIFF_EXCLUDES="heimdal.info vars.texi"
+
+src_compile() {
+	cd ${S}
+	cygautoreconf
+
+	cd ${B}
+
+	# these libexec_PROGRAMS are just servers
+	cygconf \
+		--disable-static \
+		--libexecdir=/usr/sbin \
+		--with-hdbdir=/var/lib/heimdal \
+		--with-libintl=/usr \
+		--with-openldap=/usr \
+		--with-openssl=/usr \
+		--with-sqlite3=/usr \
+		--with-libedit=/usr --with-libedit-include=/usr/include/editline
+
+	cygmake LDFLAGS="${LDFLAGS} -no-undefined" -j1
+}
+
+src_install() {
+	cd ${B}
+	INSTALL_CATPAGES="no" cyginstall libexec_heimdaldir=/usr/bin
+
+	for a in ftp login rcp rsh su telnet
+	do
+		mv ${D}/usr/bin/{,k}${a}.exe
+		mv ${D}/usr/share/man/man1/{,k}${a}.1
+	done
+
+	for s in ftpd rshd telnetd
+	do
+		mv ${D}/usr/sbin/{,k}${s}.exe
+		mv ${D}/usr/share/man/man8/{,k}${s}.8
+	done
+}
+
+KEEP_LA_FILES="none"

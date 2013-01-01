@@ -1,5 +1,0 @@
-category: Net
-requires: crypt libasn1_8 libedit0 libgssapi3 libhdb9 libheimbase1 libheimntlm0 libhx509_5 libintl8 libkadm5clnt7 libkadm5srv8 libkafs0 libkdc2 libkrb5_26 libncurses10 libopenssl100 libotp0 libroken18 libsl0 libwind0 libX11_6 libXau6 libXt6
-sdesc: "Heimdal Kerberos 5 clients and servers"
-ldesc: "Heimdal is an implementation of Kerberos 5, largely written in 
-Sweden. It is freely available under a three clause BSD style license."

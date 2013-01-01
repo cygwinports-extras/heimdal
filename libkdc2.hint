@@ -1,6 +1,0 @@
-category: Net
-requires: libasn1_8 libhdb9 libheimntlm0 libhx509_5 libintl8 libkrb5_26 libroken18 libopenssl100
-external-source: heimdal
-sdesc: "Heimdal Kerberos 5 (KDC library)"
-ldesc: "Heimdal is an implementation of Kerberos 5, largely written in 
-Sweden. It is freely available under a three clause BSD style license."
