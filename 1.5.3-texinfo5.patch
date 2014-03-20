@@ -1,0 +1,70 @@
+--- origsrc/heimdal-1.5.3/doc/hx509.texi	2012-12-09 16:06:44.000000000 -0600
++++ src/heimdal-1.5.3/doc/hx509.texi	2014-03-19 23:56:27.016131400 -0500
+@@ -34,9 +34,18 @@
+ @subtitle 2008
+ @author Love Hörnquist Åstrand
+ 
++@iftex
+ @def@copynext{@vskip 20pt plus 1fil}
+ @def@copyrightstart{}
+ @def@copyrightend{}
++@end iftex
++@macro copynext
++@end macro
++@macro copyrightstart
++@end macro
++@macro copyrightend
++@end macro
++
+ @page
+ @copyrightstart
+ Copyright (c) 1994-2008 Kungliga Tekniska Högskolan
+@@ -183,6 +192,13 @@ This manual is for version @value{VERSIO
+ * CMS signing and encryption::
+ * Certificate matching::
+ * Software PKCS 11 module::
++* Creating a CA certificate::
++* Issuing certificates::
++* Issuing CRLs::
++* Application requirements::
++* CMS background::
++* Matching syntax::
++* How to use the PKCS11 module::
+ 
+ @detailmenu
+  --- The Detailed Node Listing ---
+--- origsrc/heimdal-1.5.3/doc/whatis.texi	2012-12-09 16:06:44.000000000 -0600
++++ src/heimdal-1.5.3/doc/whatis.texi	2014-03-19 23:50:44.050080300 -0500
+@@ -35,16 +35,19 @@ services can authenticate each other.
+ @end macro
+ @end ifinfo
+ 
+-@tex
+-@def@xsub#1{$_{#1}$}
+-@global@let@sub=@xsub
+-@end tex
++@iftex
++@macro sub{arg}
++@textsubscript{\arg\}
++@end macro
++@end iftex
+ 
+ @ifhtml
+ @macro sub{arg}
++
+ @html
+ <sub>\arg\</sub>
+ @end html
++
+ @end macro
+ @end ifhtml
+ 
+--- origsrc/heimdal-1.5.3/doc/win2k.texi	2012-12-09 16:06:44.000000000 -0600
++++ src/heimdal-1.5.3/doc/win2k.texi	2014-03-19 23:51:16.686724600 -0500
+@@ -311,4 +311,5 @@ Other useful programs include these:
+ 
+ @itemize @bullet
+ @item pwdump2
+-@uref{http://www.bindview.com/Support/RAZOR/Utilities/Windows/pwdump2_readme.cfm}@end itemize
++@uref{http://www.bindview.com/Support/RAZOR/Utilities/Windows/pwdump2_readme.cfm}
++@end itemize

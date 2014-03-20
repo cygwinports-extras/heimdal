@@ -1,24 +1,26 @@
 NAME="heimdal"
-VERSION=1.5.2
-RELEASE=4
-CATEGORY="Net"
+VERSION=1.5.3
+RELEASE=1
+CATEGORY="Libs"
 SUMMARY="Kerberos 5 implementation"
 DESCRIPTION="Heimdal is an implementation of Kerberos 5, largely written in
 Sweden. It is freely available under a three clause BSD style license."
 HOMEPAGE="http://www.h5l.org/"
-SRC_URI="http://www.h5l.org/dist/src/${P}.tar.gz
-         http://www.h5l.org/dist/src/${P}.tar.gz.asc"
+SRC_URI="http://www.h5l.org/dist/src/heimdal-${VERSION}.tar.gz
+         http://www.h5l.org/dist/src/heimdal-${VERSION}.tar.gz.asc"
 PATCH_URI="
 	1.2.1-test-modules.patch
 	1.5.2-install-catman.patch
 	1.5.2-hdbdir.patch
 	1.5.2-roken-signal.patch
+	1.5.3-texinfo5.patch
 "
-PKG_NAMES="${PN} libkrb5_26 libasn1_8 libgssapi3 libhdb9 libheimbase1
+PKG_NAMES="${NAME} libkrb5_26 libasn1_8 libgssapi3 libhdb9 libheimbase1
            libheimntlm0 libhx509_5 libkadm5clnt7 libkadm5srv8 libkafs0 libkdc2
-           libotp0 libroken18 libsl0 libwind0 libkrb5-devel"
+           libotp0 libroken18 libsl0 libwind0 libkrb5-devel libkrb5-doc"
+heimdal_CATEGORY="Net"
 heimdal_SUMMARY="${SUMMARY} clients and servers"
-heimdal_CONTENTS="--exclude=usr/bin/*.dll --exclude=*-config --exclude=man3
+heimdal_CONTENTS="--exclude=usr/bin/*.dll --exclude=*-config* --exclude=man3
                   usr/bin/ usr/sbin/ usr/share/"
 libasn1_8_SUMMARY="${SUMMARY} (ASN.1 library)"
 libasn1_8_CONTENTS="usr/bin/cygasn1-8.dll"
@@ -51,9 +53,12 @@ libsl0_CONTENTS="usr/bin/cygsl-0.dll"
 libwind0_SUMMARY="${SUMMARY} (wind library)"
 libwind0_CONTENTS="usr/bin/cygwind-0.dll"
 libkrb5_devel_SUMMARY="${SUMMARY} (library development)"
-libkrb5_devel_CONTENTS="usr/bin/krb5-config usr/include/ usr/lib/ usr/share/man/man3/"
+libkrb5_devel_CONTENTS="usr/bin/krb5-config usr/include/ usr/lib/ usr/share/man/man1/krb5-config.1*"
+libkrb5_doc_CATEGORY="Doc"
+libkrb5_doc_SUMMARY="${SUMMARY} (library manpages)"
+libkrb5_doc_CONTENTS="usr/share/man/man3/"
 
-DIFF_EXCLUDES="heimdal.info vars.texi"
+DIFF_EXCLUDES="*.info vars.texi"
 
 src_compile() {
 	cd ${S}
